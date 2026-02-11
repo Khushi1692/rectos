@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ShoppingCart } from "lucide-react";
+import { useCart } from "@/context/CartContext";
 import pizzaClassic from "@/assets/pizza-classic.jpg";
 import pizzaPepper from "@/assets/pizza-pepper.jpg";
 import pizzaVeg from "@/assets/pizza-veg.jpg";
@@ -17,6 +18,8 @@ const pizzas = [
 ];
 
 const MenuSection = () => {
+  const { addItem } = useCart();
+
   return (
     <section id="menu" className="py-20 bg-muted/50">
       <div className="container mx-auto px-4">
@@ -28,16 +31,9 @@ const MenuSection = () => {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {pizzas.map((pizza) => (
-            <div
-              key={pizza.name}
-              className="bg-card rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow border border-border group"
-            >
+            <div key={pizza.name} className="bg-card rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow border border-border group">
               <div className="aspect-square overflow-hidden">
-                <img
-                  src={pizza.image}
-                  alt={pizza.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
+                <img src={pizza.image} alt={pizza.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
               </div>
               <div className="p-5">
                 <div className="flex items-start justify-between mb-1">
@@ -45,7 +41,12 @@ const MenuSection = () => {
                   <span className="text-primary font-extrabold text-lg">{pizza.price}</span>
                 </div>
                 <p className="text-muted-foreground text-sm mb-4">{pizza.desc}</p>
-                <Button variant="hero" size="sm" className="w-full gap-2">
+                <Button
+                  variant="hero"
+                  size="sm"
+                  className="w-full gap-2"
+                  onClick={() => addItem({ name: pizza.name, price: pizza.price, image: pizza.image })}
+                >
                   <ShoppingCart className="w-4 h-4" />
                   Add to Cart
                 </Button>
