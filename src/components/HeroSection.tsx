@@ -22,8 +22,8 @@ const HeroSection = () => {
             <Button variant="hero" size="lg" className="text-lg px-8 py-6">
               Order Now
             </Button>
-            <Button variant="heroOutline" size="lg" className="text-lg px-8 py-6 border-primary-foreground/50 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground">
-              View Menu
+            <Button variant="heroOutline" size="lg" className="text-lg px-8 py-6 border-primary-foreground/50 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground" asChild>
+              <a href="/menu">View Menu</a>
             </Button>
           </div>
         </div>
