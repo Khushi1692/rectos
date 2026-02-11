@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
 import { Button } from "@/components/ui/button";
 import { ShoppingCart } from "lucide-react";
+import { useCart } from "@/context/CartContext";
 import pizzaClassic from "@/assets/pizza-classic.jpg";
 import pizzaPepper from "@/assets/pizza-pepper.jpg";
 import pizzaVeg from "@/assets/pizza-veg.jpg";
@@ -11,7 +12,6 @@ import pizzaBbq from "@/assets/pizza-bbq.jpg";
 import pizzaMeat from "@/assets/pizza-meat.jpg";
 
 const categories = ["Pizza", "Snacks", "Sips + Bites"] as const;
-
 type Category = (typeof categories)[number];
 
 const menuItems: Record<Category, { name: string; desc: string; price: string; image: string }[]> = {
@@ -39,6 +39,7 @@ const menuItems: Record<Category, { name: string; desc: string; price: string; i
 
 const MenuPage = () => {
   const [active, setActive] = useState<Category>("Pizza");
+  const { addItem } = useCart();
 
   return (
     <div className="min-h-screen bg-background">
@@ -52,7 +53,6 @@ const MenuPage = () => {
             <p className="text-muted-foreground text-lg">All rectangular. All delicious.</p>
           </div>
 
-          {/* Category Tabs */}
           <div className="flex justify-center gap-2 sm:gap-4 mb-12 flex-wrap">
             {categories.map((cat) => (
               <button
@@ -69,19 +69,11 @@ const MenuPage = () => {
             ))}
           </div>
 
-          {/* Items Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {menuItems[active].map((item) => (
-              <div
-                key={item.name}
-                className="bg-card rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow border border-border group"
-              >
+              <div key={item.name} className="bg-card rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow border border-border group">
                 <div className="aspect-square overflow-hidden">
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
+                  <img src={item.image} alt={item.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                 </div>
                 <div className="p-5">
                   <div className="flex items-start justify-between mb-1">
@@ -89,7 +81,12 @@ const MenuPage = () => {
                     <span className="text-primary font-extrabold text-lg">{item.price}</span>
                   </div>
                   <p className="text-muted-foreground text-sm mb-4">{item.desc}</p>
-                  <Button variant="hero" size="sm" className="w-full gap-2">
+                  <Button
+                    variant="hero"
+                    size="sm"
+                    className="w-full gap-2"
+                    onClick={() => addItem({ name: item.name, price: item.price, image: item.image })}
+                  >
                     <ShoppingCart className="w-4 h-4" />
                     Add to Cart
                   </Button>

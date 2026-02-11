@@ -28,8 +28,8 @@ const FooterSection = () => {
             <ul className="space-y-2.5 text-sm text-secondary-foreground/70">
               <li><Link to="/" className="hover:text-primary transition-colors">Home</Link></li>
               <li><Link to="/menu" className="hover:text-primary transition-colors">Menu</Link></li>
-              <li><a href="#why" className="hover:text-primary transition-colors">About Us</a></li>
-              <li><a href="#contact" className="hover:text-primary transition-colors">Contact</a></li>
+              <li><Link to="/about" className="hover:text-primary transition-colors">About Us</Link></li>
+              <li><Link to="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
             </ul>
           </div>
 
