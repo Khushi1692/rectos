@@ -40,7 +40,6 @@ const FooterSection = () => {
               <li className="flex items-center gap-2"><Pizza className="w-4 h-4 text-primary" /> Take Away</li>
               <li className="flex items-center gap-2"><CreditCard className="w-4 h-4 text-primary" /> Online Ordering</li>
               <li className="flex items-center gap-2"><UtensilsCrossed className="w-4 h-4 text-primary" /> Dine In</li>
-              <li className="flex items-center gap-2"><Phone className="w-4 h-4 text-primary" /> Phone Orders</li>
             </ul>
           </div>
 
