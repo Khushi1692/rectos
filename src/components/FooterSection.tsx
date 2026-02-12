@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail, Clock, Pizza, PartyPopper, CreditCard, UtensilsCrossed } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Pizza, CreditCard, UtensilsCrossed } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const FooterSection = () => {
@@ -38,9 +38,9 @@ const FooterSection = () => {
             <h4 className="text-lg font-bold text-secondary-foreground mb-4">Our Services</h4>
             <ul className="space-y-2.5 text-sm text-secondary-foreground/70">
               <li className="flex items-center gap-2"><Pizza className="w-4 h-4 text-primary" /> Take Away</li>
-              <li className="flex items-center gap-2"><PartyPopper className="w-4 h-4 text-primary" /> Party Orders</li>
-              <li className="flex items-center gap-2"><CreditCard className="w-4 h-4 text-primary" /> Online Payment</li>
-              <li className="flex items-center gap-2"><UtensilsCrossed className="w-4 h-4 text-primary" /> Catering</li>
+              <li className="flex items-center gap-2"><CreditCard className="w-4 h-4 text-primary" /> Online Ordering</li>
+              <li className="flex items-center gap-2"><UtensilsCrossed className="w-4 h-4 text-primary" /> Dine In</li>
+              <li className="flex items-center gap-2"><Phone className="w-4 h-4 text-primary" /> Phone Orders</li>
             </ul>
           </div>
 
