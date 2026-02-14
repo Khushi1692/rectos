@@ -1,4 +1,5 @@
 import { useState } from "react";
+import SEO from "@/components/SEO";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
 import { Button } from "@/components/ui/button";
@@ -43,6 +44,11 @@ const MenuPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Menu | Recto's Pizza – Rectangle Pizzas & More"
+        description="Explore Recto's Pizza menu – classic, BBQ, veggie, and more rectangle pizzas with fresh ingredients. Order online or dine in at Clayton South."
+        canonical="https://rectospizza.com/menu"
+      />
       <Navbar />
       <div className="pt-24 pb-20">
         <div className="container mx-auto px-4">

@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
 import brandImg from "@/assets/brand-personality.jpg";
+import SEO from "@/components/SEO";
 import heroPizza from "@/assets/hero-pizza.jpg";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -28,6 +29,11 @@ const timeline = [
 const AboutPage = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="About Us | Recto's Pizza – We Reinvented the Slice"
+        description="Learn about Recto's Pizza – rectangle pizza born from a simple idea. Perfect portions, more toppings, better sharing. Made in Clayton South."
+        canonical="https://rectospizza.com/about"
+      />
       <Navbar />
       <div className="pt-24 pb-0">
 

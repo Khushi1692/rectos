@@ -6,10 +6,36 @@ import HowItWorks from "@/components/HowItWorks";
 import BrandSection from "@/components/BrandSection";
 import ReviewsSection from "@/components/ReviewsSection";
 import FooterSection from "@/components/FooterSection";
+import SEO from "@/components/SEO";
+
+const homepageJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  name: "Recto's Pizza",
+  description: "Rectangle pizza perfection in Clayton South, Melbourne.",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "23 Meriton Pl",
+    addressLocality: "Clayton South",
+    addressRegion: "VIC",
+    postalCode: "3169",
+    addressCountry: "AU",
+  },
+  telephone: "+61406562036",
+  servesCuisine: "Pizza",
+  url: "https://rectospizza.com",
+  openingHours: ["Mo-Th 17:00-23:00", "Fr-Su 17:00-00:00"],
+};
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Recto's Pizza | Rectangle Pizza in Clayton South"
+        description="Fresh, cheesy, perfectly sliced rectangle pizza in Clayton South, Melbourne. Order online or dine in today!"
+        canonical="https://rectospizza.com"
+        jsonLd={homepageJsonLd}
+      />
       <Navbar />
       <HeroSection />
       <WhyRectangle />
