@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
+import SEO from "@/components/SEO";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
@@ -40,6 +41,11 @@ const ContactPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Contact Us | Recto's Pizza Clayton South"
+        description="Get in touch with Recto's Pizza for reservations, orders, or inquiries. Visit us at 23 Meriton Pl, Clayton South VIC 3169."
+        canonical="https://rectospizza.com/contact"
+      />
       <Navbar />
       <div className="pt-24 pb-20">
         <div className="container mx-auto px-4">
