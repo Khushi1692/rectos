@@ -1,6 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { ShoppingCart } from "lucide-react";
-import { useCart } from "@/context/CartContext";
 import pizzaClassic from "@/assets/pizza-classic.jpg";
 import pizzaPepper from "@/assets/pizza-pepper.jpg";
 import pizzaVeg from "@/assets/pizza-veg.jpg";
@@ -18,8 +16,6 @@ const pizzas = [
 ];
 
 const MenuSection = () => {
-  const { addItem } = useCart();
-
   return (
     <section id="menu" className="py-20 bg-muted/50">
       <div className="container mx-auto px-4">
@@ -41,14 +37,8 @@ const MenuSection = () => {
                   <span className="text-primary font-extrabold text-lg">{pizza.price}</span>
                 </div>
                 <p className="text-muted-foreground text-sm mb-4">{pizza.desc}</p>
-                <Button
-                  variant="hero"
-                  size="sm"
-                  className="w-full gap-2"
-                  onClick={() => addItem({ name: pizza.name, price: pizza.price, image: pizza.image })}
-                >
-                  <ShoppingCart className="w-4 h-4" />
-                  Add to Cart
+                <Button variant="hero" size="sm" className="w-full" asChild>
+                  <a href="https://www.ubereats.com" target="_blank" rel="noopener noreferrer">Order Now</a>
                 </Button>
               </div>
             </div>

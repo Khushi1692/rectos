@@ -3,8 +3,6 @@ import SEO from "@/components/SEO";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
 import { Button } from "@/components/ui/button";
-import { ShoppingCart } from "lucide-react";
-import { useCart } from "@/context/CartContext";
 import pizzaClassic from "@/assets/pizza-classic.jpg";
 import pizzaPepper from "@/assets/pizza-pepper.jpg";
 import pizzaVeg from "@/assets/pizza-veg.jpg";
@@ -40,7 +38,6 @@ const menuItems: Record<Category, { name: string; desc: string; price: string; i
 
 const MenuPage = () => {
   const [active, setActive] = useState<Category>("Pizza");
-  const { addItem } = useCart();
 
   return (
     <div className="min-h-screen bg-background">
@@ -87,14 +84,8 @@ const MenuPage = () => {
                     <span className="text-primary font-extrabold text-lg">{item.price}</span>
                   </div>
                   <p className="text-muted-foreground text-sm mb-4">{item.desc}</p>
-                  <Button
-                    variant="hero"
-                    size="sm"
-                    className="w-full gap-2"
-                    onClick={() => addItem({ name: item.name, price: item.price, image: item.image })}
-                  >
-                    <ShoppingCart className="w-4 h-4" />
-                    Add to Cart
+                  <Button variant="hero" size="sm" className="w-full" asChild>
+                    <a href="https://www.ubereats.com" target="_blank" rel="noopener noreferrer">Order Now</a>
                   </Button>
                 </div>
               </div>
