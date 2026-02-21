@@ -41,6 +41,11 @@ const MenuSection = () => {
             </div>
           ))}
         </div>
+        <div className="text-center mt-10">
+          <Button variant="hero" size="lg" className="text-lg px-8 py-6" asChild>
+            <a href="/menu">Explore Menu</a>
+          </Button>
+        </div>
       </div>
     </section>
   );

@@ -74,16 +74,14 @@ const MenuPage = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {menuItems[active].map((item) => (
-              <div key={item.name} className="bg-card rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow border border-border group flex flex-col">
-                <div className="aspect-square overflow-hidden">
+              <div key={item.name} className="bg-card rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow border border-border group flex flex-row h-40">
+                <div className="w-40 min-w-[10rem] overflow-hidden">
                   <img src={item.image} alt={item.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                 </div>
-                <div className="p-5 flex flex-col flex-1">
-                  <div className="flex items-start justify-between mb-1">
-                    <h3 className="text-lg font-bold text-foreground">{item.name}</h3>
-                    <span className="text-primary font-extrabold text-lg">{item.price}</span>
-                  </div>
-                  <p className="text-muted-foreground text-sm">{item.desc}</p>
+                <div className="p-4 flex flex-col justify-center flex-1">
+                  <h3 className="text-base font-bold text-foreground mb-1">{item.name}</h3>
+                  <p className="text-muted-foreground text-sm mb-2 line-clamp-2">{item.desc}</p>
+                  <span className="text-primary font-extrabold text-lg">{item.price}</span>
                 </div>
               </div>
             ))}
