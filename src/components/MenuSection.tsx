@@ -27,19 +27,16 @@ const MenuSection = () => {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {pizzas.map((pizza) => (
-            <div key={pizza.name} className="bg-card rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow border border-border group">
+            <div key={pizza.name} className="bg-card rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow border border-border group flex flex-col">
               <div className="aspect-square overflow-hidden">
                 <img src={pizza.image} alt={pizza.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
               </div>
-              <div className="p-5">
+              <div className="p-5 flex flex-col flex-1">
                 <div className="flex items-start justify-between mb-1">
                   <h3 className="text-lg font-bold text-foreground">{pizza.name}</h3>
                   <span className="text-primary font-extrabold text-lg">{pizza.price}</span>
                 </div>
-                <p className="text-muted-foreground text-sm mb-4">{pizza.desc}</p>
-                <Button variant="hero" size="sm" className="w-full" asChild>
-                  <a href="https://www.ubereats.com" target="_blank" rel="noopener noreferrer">Order Now</a>
-                </Button>
+                <p className="text-muted-foreground text-sm">{pizza.desc}</p>
               </div>
             </div>
           ))}
