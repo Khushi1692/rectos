@@ -20,10 +20,7 @@ const HeroSection = () => {
           </p>
           <div className="flex flex-wrap gap-4">
             <Button variant="hero" size="lg" className="text-lg px-8 py-6" asChild>
-              <a href="https://www.ubereats.com" target="_blank" rel="noopener noreferrer">Order Now</a>
-            </Button>
-            <Button variant="heroOutline" size="lg" className="text-lg px-8 py-6 border-primary-foreground/50 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground" asChild>
-              <a href="/menu">View Menu</a>
+              <a href="/menu">Explore Menu</a>
             </Button>
           </div>
         </div>

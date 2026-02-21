@@ -172,9 +172,6 @@ const AboutPage = () => {
               {audience.map((item) => (
                 <div key={item.label} className="group bg-card rounded-3xl p-6 border border-border shadow-sm hover:shadow-lg hover:border-primary/30 transition-all duration-300 hover:-translate-y-1">
                   <div className="text-3xl mb-3">{item.emoji}</div>
-                  <div className="w-11 h-11 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-3 group-hover:bg-primary/20 transition-colors">
-                    <item.icon className="w-5 h-5 text-primary" />
-                  </div>
                   <p className="text-foreground font-bold text-sm">{item.label}</p>
                 </div>
               ))}

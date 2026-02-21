@@ -74,19 +74,16 @@ const MenuPage = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {menuItems[active].map((item) => (
-              <div key={item.name} className="bg-card rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow border border-border group">
+              <div key={item.name} className="bg-card rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow border border-border group flex flex-col">
                 <div className="aspect-square overflow-hidden">
                   <img src={item.image} alt={item.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                 </div>
-                <div className="p-5">
+                <div className="p-5 flex flex-col flex-1">
                   <div className="flex items-start justify-between mb-1">
                     <h3 className="text-lg font-bold text-foreground">{item.name}</h3>
                     <span className="text-primary font-extrabold text-lg">{item.price}</span>
                   </div>
-                  <p className="text-muted-foreground text-sm mb-4">{item.desc}</p>
-                  <Button variant="hero" size="sm" className="w-full" asChild>
-                    <a href="https://www.ubereats.com" target="_blank" rel="noopener noreferrer">Order Now</a>
-                  </Button>
+                  <p className="text-muted-foreground text-sm">{item.desc}</p>
                 </div>
               </div>
             ))}
