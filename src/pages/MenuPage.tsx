@@ -77,7 +77,7 @@ const MenuPage = () => {
             {menuItems[active].map((item) => (
               <div
                 key={item.name}
-                className="bg-card border-2 border-foreground shadow-[4px_4px_0px_0px_hsl(var(--foreground))] overflow-hidden group flex flex-col"
+                className="bg-card border-2 border-foreground shadow-[4px_4px_0px_0px_hsl(var(--foreground))] overflow-hidden group flex flex-col hover:-translate-y-2 transition-transform duration-300"
               >
                 <div className="aspect-square overflow-hidden bg-primary/20">
                   <img

@@ -40,7 +40,7 @@ const WhyRectangle = () => {
           {features.map((feature) => (
             <div
               key={feature.title}
-              className="bg-card border-2 border-foreground shadow-[4px_4px_0px_0px_hsl(var(--foreground))] p-8 text-center"
+              className="bg-card border-2 border-foreground shadow-[4px_4px_0px_0px_hsl(var(--foreground))] p-8 text-center hover:-translate-y-2 transition-transform duration-300"
             >
               <div className={`w-16 h-16 rounded-full ${feature.iconBg} flex items-center justify-center mx-auto mb-5 border-2 border-foreground`}>
                 <feature.icon className="w-8 h-8 text-foreground" />

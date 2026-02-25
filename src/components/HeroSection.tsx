@@ -15,7 +15,7 @@ const HeroSection = () => {
             <span className="text-primary">Every Day</span>{" "}
             Cravings
           </h1>
-          <p className="text-lg sm:text-xl text-secondary-foreground/80 mb-8 font-medium">
+          <p className="text-lg sm:text-xl text-primary-foreground/90 mb-8 font-medium">
             Fresh. Cheesy. Perfectly sliced.
           </p>
           <div className="flex flex-wrap gap-4">
