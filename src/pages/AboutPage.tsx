@@ -107,7 +107,7 @@ const AboutPage = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
               {whyRectangle.map((item) => (
-                <div key={item.title} className="bg-card border-2 border-foreground shadow-[4px_4px_0px_0px_hsl(var(--foreground))] p-8 text-center">
+                <div key={item.title} className="bg-card border-2 border-foreground shadow-[4px_4px_0px_0px_hsl(var(--foreground))] p-8 text-center hover:-translate-y-2 transition-transform duration-300">
                   <div className="text-4xl mb-4">{item.emoji}</div>
                   <h3 className="text-lg font-heading font-bold text-foreground uppercase mb-2">{item.title}</h3>
                   <p className="text-muted-foreground text-sm">{item.desc}</p>

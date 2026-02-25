@@ -1,4 +1,4 @@
-import { Star, ChevronLeft, ChevronRight } from "lucide-react";
+import { Star } from "lucide-react";
 import { useState, useEffect, useCallback } from "react";
 
 const reviews = [
@@ -51,21 +51,6 @@ const ReviewsSection = () => {
 
         {/* Desktop: 3 cards */}
         <div className="relative max-w-5xl mx-auto hidden md:block">
-          <button
-            onClick={prev}
-            className="absolute -left-4 sm:-left-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-secondary text-secondary-foreground flex items-center justify-center shadow-lg hover:bg-primary hover:text-primary-foreground transition-colors"
-            aria-label="Previous reviews"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-          <button
-            onClick={next}
-            className="absolute -right-4 sm:-right-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-secondary text-secondary-foreground flex items-center justify-center shadow-lg hover:bg-primary hover:text-primary-foreground transition-colors"
-            aria-label="Next reviews"
-          >
-            <ChevronRight className="w-5 h-5" />
-          </button>
-
           <div className="grid grid-cols-3 gap-4">
             {visibleIndices.map((idx) => {
               const review = reviews[idx];
