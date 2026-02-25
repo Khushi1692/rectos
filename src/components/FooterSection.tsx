@@ -8,7 +8,7 @@ const FooterSection = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           {/* Brand */}
           <div>
-            <h3 className="text-2xl font-extrabold text-primary mb-3 font-heading">Recto's</h3>
+            <h3 className="text-2xl font-extrabold text-primary mb-3 font-heading uppercase">Recto's</h3>
             <p className="text-secondary-foreground/70 text-sm leading-relaxed">
               Rectangle pizza perfection in the heart of Clayton South. Fresh ingredients, bold flavors, modern comfort.
             </p>

@@ -2,7 +2,6 @@ import { useState } from "react";
 import SEO from "@/components/SEO";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
-import { Button } from "@/components/ui/button";
 import pizzaClassic from "@/assets/pizza-classic.jpg";
 import pizzaPepper from "@/assets/pizza-pepper.jpg";
 import pizzaVeg from "@/assets/pizza-veg.jpg";
@@ -56,15 +55,16 @@ const MenuPage = () => {
             <p className="text-muted-foreground text-lg">All rectangular. All delicious.</p>
           </div>
 
-          <div className="flex justify-center gap-2 sm:gap-4 mb-12 flex-wrap">
+          {/* Category tabs - bold bordered style like reference */}
+          <div className="flex justify-center gap-3 sm:gap-4 mb-12 flex-wrap">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActive(cat)}
-                className={`px-6 py-2.5 rounded-xl font-semibold text-sm sm:text-base transition-all ${
+                className={`px-6 py-3 font-heading font-bold text-sm sm:text-base uppercase tracking-wide transition-all border-2 border-foreground shadow-[3px_3px_0px_0px_hsl(var(--foreground))] ${
                   active === cat
-                    ? "bg-primary text-primary-foreground shadow-lg"
-                    : "bg-card text-foreground border border-border hover:border-primary/50"
+                    ? "bg-primary text-primary-foreground"
+                    : "bg-card text-foreground hover:bg-primary/10"
                 }`}
               >
                 {cat}
@@ -72,16 +72,24 @@ const MenuPage = () => {
             ))}
           </div>
 
+          {/* Cards - vertical layout like reference */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {menuItems[active].map((item) => (
-              <div key={item.name} className="bg-card rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow border border-border group flex flex-row h-40">
-                <div className="w-40 min-w-[10rem] overflow-hidden">
-                  <img src={item.image} alt={item.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+              <div
+                key={item.name}
+                className="bg-card border-2 border-foreground shadow-[4px_4px_0px_0px_hsl(var(--foreground))] overflow-hidden group flex flex-col"
+              >
+                <div className="aspect-square overflow-hidden bg-primary/20">
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
-                <div className="p-4 flex flex-col justify-center flex-1">
-                  <h3 className="text-base font-bold text-foreground mb-1">{item.name}</h3>
-                  <p className="text-muted-foreground text-sm mb-2 line-clamp-2">{item.desc}</p>
-                  <span className="text-primary font-extrabold text-lg">{item.price}</span>
+                <div className="p-5 flex flex-col flex-1">
+                  <h3 className="text-lg font-heading font-bold text-foreground uppercase mb-1">{item.name}</h3>
+                  <p className="text-muted-foreground text-sm mb-2 flex-1">{item.desc}</p>
+                  <span className="text-primary font-heading font-bold text-xl">{item.price}</span>
                 </div>
               </div>
             ))}

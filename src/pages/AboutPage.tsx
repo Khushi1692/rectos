@@ -96,20 +96,20 @@ const AboutPage = () => {
           </div>
         </section>
 
-        {/* Why Rectangle — Cards with Emoji & Icons */}
-        <section className="py-20 bg-background">
+        {/* Why Rectangle — Bold bordered cards like reference */}
+        <section className="py-20 bg-primary">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground mb-3">
-                Why <span className="text-primary">Rectangle</span>?
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-primary-foreground mb-3">
+                Why <span className="text-golden">Rectangle</span>?
               </h2>
-              <p className="text-muted-foreground max-w-md mx-auto">Three reasons that make all the difference.</p>
+              <p className="text-primary-foreground/80 max-w-md mx-auto">Three reasons that make all the difference.</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
               {whyRectangle.map((item) => (
-                <div key={item.title} className="group bg-card rounded-3xl p-8 text-center shadow-md border border-border hover:shadow-xl hover:border-primary/30 transition-all duration-300 hover:-translate-y-1">
+                <div key={item.title} className="bg-card border-2 border-foreground shadow-[4px_4px_0px_0px_hsl(var(--foreground))] p-8 text-center">
                   <div className="text-4xl mb-4">{item.emoji}</div>
-                  <h3 className="text-xl font-bold text-foreground mb-2">{item.title}</h3>
+                  <h3 className="text-lg font-heading font-bold text-foreground uppercase mb-2">{item.title}</h3>
                   <p className="text-muted-foreground text-sm">{item.desc}</p>
                 </div>
               ))}
