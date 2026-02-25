@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ["Poppins", "sans-serif"],
+        heading: ["'Pixelify Sans'", "cursive"],
         body: ["Poppins", "sans-serif"],
       },
       colors: {
