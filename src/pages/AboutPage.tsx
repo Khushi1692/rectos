@@ -118,13 +118,13 @@ const AboutPage = () => {
         </section>
 
         {/* Mission — Bold Statement */}
-        <section className="py-20 bg-primary">
+        <section className="py-20 bg-secondary">
           <div className="container mx-auto px-4 text-center max-w-3xl">
-            <ChefHat className="w-12 h-12 text-primary-foreground/80 mx-auto mb-6" />
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-primary-foreground mb-5">
+            <ChefHat className="w-12 h-12 text-primary mx-auto mb-6" />
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-secondary-foreground mb-5">
               Our Mission
             </h2>
-            <p className="text-primary-foreground/90 text-lg sm:text-xl leading-relaxed">
+            <p className="text-secondary-foreground/90 text-lg sm:text-xl leading-relaxed">
               To make pizza more fun, more fair, and more satisfying — <span className="font-bold">one rectangle at a time.</span>
             </p>
           </div>
