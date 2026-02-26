@@ -15,7 +15,7 @@ export default {
     extend: {
       fontFamily: {
         heading: ["'Pixelify Sans'", "cursive"],
-        body: ["Nunito", "sans-serif"],
+        body: ["Fredoka", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
