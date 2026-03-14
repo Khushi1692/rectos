@@ -38,14 +38,14 @@ const AboutPage = () => {
       <div className="pt-24 pb-0">
 
         {/* Hero — Big & Bold */}
-        <section className="relative py-20 px-4 overflow-hidden">
+        <section className="relative pb-20 pt-4 px-4 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
           <div className="relative container mx-auto text-center max-w-3xl">
             <div className="inline-flex items-center gap-2 bg-primary/10 text-primary font-bold text-sm px-4 py-2 rounded-full mb-6">
               <Sparkles className="w-4 h-4" />
               Our Story
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-foreground mb-5 leading-tight">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl text-foreground mb-5 leading-tight">
               Not Your <span className="text-primary">Regular</span> Pizza Brand
             </h1>
             <p className="text-muted-foreground text-lg sm:text-xl max-w-xl mx-auto mb-4">
@@ -72,7 +72,7 @@ const AboutPage = () => {
                 </div>
               </div>
               <div>
-                <h2 className="text-3xl sm:text-4xl font-extrabold text-secondary-foreground mb-8">
+                <h2 className="text-3xl sm:text-4xl text-secondary-foreground mb-8">
                   Our <span className="text-primary">Journey</span>
                 </h2>
                 <div className="space-y-6">
@@ -85,7 +85,7 @@ const AboutPage = () => {
                         {i < timeline.length - 1 && <div className="w-0.5 h-full bg-primary/20 mt-2" />}
                       </div>
                       <div className="pb-2">
-                        <h3 className="text-lg font-bold text-secondary-foreground mb-1">{item.year}</h3>
+                        <h3 className="text-lg text-secondary-foreground mb-1">{item.year}</h3>
                         <p className="text-secondary-foreground/70 leading-relaxed">{item.text}</p>
                       </div>
                     </div>
@@ -100,8 +100,8 @@ const AboutPage = () => {
         <section className="py-20 bg-primary">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-primary-foreground mb-3">
-                Why <span className="text-golden">Rectangle</span>?
+              <h2 className="text-3xl sm:text-4xl text-primary-foreground mb-3">
+                Why <span className="text-foreground">Rectangle</span>?
               </h2>
               <p className="text-primary-foreground/80 max-w-md mx-auto">Three reasons that make all the difference.</p>
             </div>
@@ -109,7 +109,7 @@ const AboutPage = () => {
               {whyRectangle.map((item) => (
                 <div key={item.title} className="bg-card border-2 border-foreground shadow-[4px_4px_0px_0px_hsl(var(--foreground))] p-8 text-center hover:-translate-y-2 transition-transform duration-300">
                   <div className="text-4xl mb-4">{item.emoji}</div>
-                  <h3 className="text-lg font-heading font-bold text-foreground uppercase mb-2">{item.title}</h3>
+                  <h3 className="text-lg text-foreground mb-2">{item.title}</h3>
                   <p className="text-muted-foreground text-sm">{item.desc}</p>
                 </div>
               ))}
@@ -121,7 +121,7 @@ const AboutPage = () => {
         <section className="py-20 bg-secondary">
           <div className="container mx-auto px-4 text-center max-w-3xl">
             <ChefHat className="w-12 h-12 text-primary mx-auto mb-6" />
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-secondary-foreground mb-5">
+            <h2 className="text-3xl sm:text-4xl text-secondary-foreground mb-5">
               Our Mission
             </h2>
             <p className="text-secondary-foreground/90 text-lg sm:text-xl leading-relaxed">
@@ -139,7 +139,7 @@ const AboutPage = () => {
                   <Heart className="w-4 h-4" />
                   Our Vibe
                 </div>
-                <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground mb-5">
+                <h2 className="text-3xl sm:text-4xl text-foreground mb-5">
                   Bold, Fun & <span className="text-primary">Rectangle-Obsessed</span>
                 </h2>
                 <p className="text-muted-foreground leading-relaxed mb-4 text-lg">
@@ -162,7 +162,7 @@ const AboutPage = () => {
         {/* Made for Everyone — Fun Grid */}
         <section className="py-20 bg-secondary">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-secondary-foreground mb-3">
+            <h2 className="text-3xl sm:text-4xl text-secondary-foreground mb-3">
               Made for <span className="text-primary">Everyone</span>
             </h2>
             <p className="text-secondary-foreground/70 mb-10 max-w-lg mx-auto">
@@ -183,9 +183,7 @@ const AboutPage = () => {
         <section className="py-24 bg-background">
           <div className="container mx-auto px-4 text-center">
             <p className="text-5xl mb-4">🍕</p>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-foreground mb-3">
-              Ready to try the <span className="text-primary">rectangle</span>?
-            </h2>
+            <h2 className="text-3xl sm:text-4xl text-foreground mb-3">Ready to try the <span className="text-primary">rectangle</span>?</h2>
             <p className="text-muted-foreground mb-8 max-w-md mx-auto">
               We didn't reinvent pizza. We reinvented the slice.
             </p>

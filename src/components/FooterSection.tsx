@@ -8,7 +8,7 @@ const FooterSection = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           {/* Brand */}
           <div>
-            <h3 className="text-2xl font-extrabold text-primary mb-3 font-heading uppercase">Recto's</h3>
+            <h3 className="text-2xl text-primary mb-3">Recto's</h3>
             <p className="text-secondary-foreground/70 text-sm leading-relaxed">
               Rectangle pizza perfection in the heart of Clayton South. Fresh ingredients, bold flavors, modern comfort.
             </p>
@@ -24,7 +24,7 @@ const FooterSection = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-bold text-secondary-foreground mb-4">Quick Links</h4>
+            <h4 className="text-lg text-secondary-foreground mb-4">Quick Links</h4>
             <ul className="space-y-2.5 text-sm text-secondary-foreground/70">
               <li><Link to="/" className="hover:text-primary transition-colors">Home</Link></li>
               <li><Link to="/menu" className="hover:text-primary transition-colors">Menu</Link></li>
@@ -35,7 +35,7 @@ const FooterSection = () => {
 
           {/* Our Services */}
           <div>
-            <h4 className="text-lg font-bold text-secondary-foreground mb-4">Our Services</h4>
+            <h4 className="text-lg text-secondary-foreground mb-4">Our Services</h4>
             <ul className="space-y-2.5 text-sm text-secondary-foreground/70">
               <li className="flex items-center gap-2"><Pizza className="w-4 h-4 text-primary" /> Take Away</li>
               <li className="flex items-center gap-2"><CreditCard className="w-4 h-4 text-primary" /> Online Ordering</li>
@@ -45,7 +45,7 @@ const FooterSection = () => {
 
           {/* Get in Touch */}
           <div>
-            <h4 className="text-lg font-bold text-secondary-foreground mb-4">Get in Touch</h4>
+            <h4 className="text-lg text-secondary-foreground mb-4">Get in Touch</h4>
             <ul className="space-y-3 text-sm text-secondary-foreground/70">
               <li className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-primary shrink-0 mt-0.5" />

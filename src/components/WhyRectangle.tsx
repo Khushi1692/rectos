@@ -29,8 +29,8 @@ const WhyRectangle = () => {
     <section id="why" className="py-20 bg-primary">
       <div className="container mx-auto px-4">
         <div className="text-center mb-14">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-primary-foreground mb-4">
-            Why <span className="text-golden">Rectangle</span>?
+          <h2 className="text-3xl sm:text-4xl text-primary-foreground mb-4">
+            Why <span className="text-foreground">Rectangle</span>?
           </h2>
           <p className="text-primary-foreground/80 max-w-xl mx-auto text-lg">
             We reinvented pizza to make it easier to share, easier to eat, and more satisfying.
@@ -45,7 +45,7 @@ const WhyRectangle = () => {
               <div className={`w-16 h-16 rounded-full ${feature.iconBg} flex items-center justify-center mx-auto mb-5 border-2 border-foreground`}>
                 <feature.icon className="w-8 h-8 text-foreground" />
               </div>
-              <h3 className="text-lg font-heading font-bold text-foreground uppercase mb-2">{feature.title}</h3>
+              <h3 className="text-lg text-foreground mb-2">{feature.title}</h3>
               <p className="text-muted-foreground text-sm">{feature.description}</p>
             </div>
           ))}

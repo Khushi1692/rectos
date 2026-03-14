@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import heroPizza from "@/assets/hero-pizza.jpg";
 
 const HeroSection = () => {
@@ -10,7 +11,7 @@ const HeroSection = () => {
       </div>
       <div className="container mx-auto px-4 relative z-10 pt-20">
         <div className="max-w-xl">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-primary-foreground leading-tight mb-4">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl text-primary-foreground leading-tight mb-4">
             Rectangle Pizza for{" "}
             <span className="text-primary">Every Day</span>{" "}
             Cravings
@@ -20,7 +21,7 @@ const HeroSection = () => {
           </p>
           <div className="flex flex-wrap gap-4">
             <Button variant="hero" size="lg" className="text-lg px-8 py-6" asChild>
-              <a href="/menu">Explore Menu</a>
+              <Link to="/menu">Explore Menu</Link>
             </Button>
           </div>
         </div>

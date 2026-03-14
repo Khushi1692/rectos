@@ -9,7 +9,7 @@ const BrandSection = () => {
             <img src={brandImg} alt="Blocky characters eating pizza" className="w-full h-full object-cover" />
           </div>
           <div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-secondary-foreground mb-4">
+            <h2 className="text-3xl sm:text-4xl text-secondary-foreground mb-4">
               Not your <span className="text-primary">regular</span> pizza brand.
             </h2>
             <p className="text-secondary-foreground/80 text-lg leading-relaxed">

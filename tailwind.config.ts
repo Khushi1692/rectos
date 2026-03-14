@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ["'Pixelify Sans'", "cursive"],
-        body: ["Fredoka", "sans-serif"],
+        heading: ["'Press Start 2P'", "system-ui"],
+        body: ["'Russo One'", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",

@@ -23,7 +23,7 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop */}
-        <div className="hidden md:flex items-center gap-6 text-sm text-secondary-foreground/90 font-medium">
+        <div className="hidden md:flex items-center gap-8 text-base text-secondary-foreground/90 font-medium">
           {navLinks.map((link) => (
             <Link
               key={link.label}
@@ -61,7 +61,7 @@ const Navbar = () => {
               key={link.label}
               to={link.href}
               onClick={() => setMobileOpen(false)}
-              className={`block py-3 transition-colors font-medium ${
+              className={`block py-4 text-lg transition-colors font-medium ${
                 location.pathname === link.href
                   ? "text-primary font-bold"
                   : "text-secondary-foreground/90 hover:text-primary"

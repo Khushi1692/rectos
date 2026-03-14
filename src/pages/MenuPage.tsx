@@ -8,31 +8,45 @@ import pizzaVeg from "@/assets/pizza-veg.jpg";
 import pizzaCheese from "@/assets/pizza-cheese.jpg";
 import pizzaBbq from "@/assets/pizza-bbq.jpg";
 import pizzaMeat from "@/assets/pizza-meat.jpg";
+import cheesyGarlicBread from "@/assets/cheesy-garlic-bread.jpg";
+import garlicBread from "@/assets/garlic-bread.jpg";
+import coldCoffee from "@/assets/cold-coffee.jpg";
+import kitkatShake from "@/assets/kitkat-shake.jpg";
+import oreoShake from "@/assets/oreoShake.jpg"
+// import periPeri from "@/assets/peri-peri.jpg";
 
 const categories = ["Pizza", "Snacks", "Sips + Bites"] as const;
 type Category = (typeof categories)[number];
 
 const menuItems: Record<Category, { name: string; desc: string; price: string; image: string }[]> = {
-  Pizza: [
-    { name: "Recto Classic", desc: "Pepperoni, mozzarella & fresh basil", price: "$14.99", image: pizzaClassic },
-    { name: "Pepper Grid", desc: "Colorful bell peppers & jalapeños", price: "$15.99", image: pizzaPepper },
-    { name: "Veg Block", desc: "Mushrooms, tomatoes, olives & herbs", price: "$13.99", image: pizzaVeg },
-    { name: "Cheese Stack", desc: "Four-cheese blend, extra melty", price: "$14.49", image: pizzaCheese },
-    { name: "BBQ Ranch", desc: "BBQ chicken, red onion & cilantro", price: "$16.99", image: pizzaBbq },
-    { name: "Meat Loader", desc: "Sausage, bacon, ham & pepperoni", price: "$17.99", image: pizzaMeat },
-  ],
-  Snacks: [
-    { name: "Garlic Knots", desc: "Golden baked with garlic butter & herbs", price: "$6.99", image: pizzaClassic },
-    { name: "Cheesy Breadsticks", desc: "Stuffed with mozzarella & parmesan", price: "$7.99", image: pizzaCheese },
-    { name: "Chicken Wings", desc: "Crispy wings with your choice of sauce", price: "$9.99", image: pizzaBbq },
-    { name: "Loaded Fries", desc: "Cheese, bacon bits & sour cream", price: "$8.49", image: pizzaMeat },
-  ],
-  "Sips + Bites": [
-    { name: "Classic Cola", desc: "Ice-cold refreshment", price: "$2.99", image: pizzaClassic },
-    { name: "Lemon Fizz", desc: "Sparkling lemonade with mint", price: "$3.49", image: pizzaVeg },
-    { name: "Choco Shake", desc: "Thick chocolate milkshake", price: "$5.99", image: pizzaCheese },
-    { name: "Cookie Box", desc: "4 freshly baked cookies", price: "$4.99", image: pizzaPepper },
-  ],
+   Pizza: [
+    { name: "Garden Fresh Veggies Pizza", desc: "Pizza top with zucchini, broccoli, capsicum. tomato, bell pepper, onion, black olive, corn, mushroom, mayonnaise and cheese, seasonin", price: "$17.99", image: pizzaMeat },
+    { name: "Bhooootttttt Jolakia Pizza", desc: "Spicy pizza top with capsicum, tomato, green Chilli, bhoot jolakia sauce, peri peri sauce. onion, mushroom , cheeses & Mayonnaise", price: "$15.99", image: pizzaPepper },
+    { name: "Peri Peri Crunchies Pizza", desc: "Pizza top with capsicum, onion, tomato, sundried tomato, corn, peri peri mayo, cheese sauce, pizza cheese & crushed nacho chi s", price: "$14.99", image: pizzaClassic },
+    { name: "Chocolate Meltdown Pizza", desc: "izza with cheese sauce. chocolate sauce, choco chips and cheese", price: "$14.49", image: pizzaCheese },
+    { name: "Classic Margherita Pizza", desc: "Classic Cheese Pizza with marinara sauce, topped with cheddar & mozzarella.", price: "$16.99", image: pizzaBbq },
+    { name: "Barbeque Cottage Cheese Pizza", desc: "Pizza top with Malai paneer, capsicum, onion, sundried toamto, BBQ sauce, pizza cheese", price: "$14.99", image: pizzaClassic },
+    { name: "Chipotle Chatakaz Pizza", desc: "Pizza top with chipolte sauce, cheese sauce, capsicum, onion, broccoli, zucchini, sundried tomato, black olive, corn & finish with cheese & seasoning", price: "$13.99", image: pizzaVeg },
+    { name: "Pesto Patola Pizza", desc: "Pizza with homemade pesto sauce, cheese sauce, capsicum, onion, broccoli, zucchini, black olive, mushroom, sundried tomato top with cheese", price: "$13.99", image: pizzaVeg },
+    { name: "Sheikh Chilli Pizza", desc: "Pizza top with sirka onion, pickled chilli, capsicum, cheese blend, pizza cheese, sundried tomato & seasoning", price: "$13.99", image: pizzaVeg },
+    { name: "Soya Chunky Sanki Pizza", desc: "Pizza with masala soya chunks, corn, mayonnaise, tandoori mayo & cheese with seasoning..", price: "$13.99", image: pizzaVeg },
+    { name: "Tandoori Peppy Paneer Pizza", desc: "Tandoori marinated Paneer pizza with capsicum, onion, tandoori mayo & pizza cheese", price: "$13.99", image: pizzaVeg },
+  
+  
+    ],
+    Snacks: [
+      { name: "Cheesy Garlic Bread", desc: "Baked bread with garlic paste blend with cheese sauce & top With pizza cheese, finish with seasoning", price: "$6.99", image: cheesyGarlicBread },
+      { name: "Garlic Bread", desc: "Baked bread with arlic paste & sprinkle seasoni", price: "$7.99", image: garlicBread },
+     
+    ],
+    "Sips + Bites": [
+      { name: "Cheese", desc: "Ice-cold refreshment", price: "$2.99", image: pizzaClassic },
+      { name: "Classic.", desc: "Sparkling lemonade with mint", price: "$3.49", image: pizzaVeg },
+      { name: "Cold Coffee", desc: "Thick chocolate milkshake", price: "$5.99", image: coldCoffee },
+      { name: "Kitkat Shake", desc: "4 freshly baked cookies", price: "$4.99", image: kitkatShake },
+      { name: "Oreo Shake", desc: "4 freshly baked cookies", price: "$4.99", image: oreoShake },
+      { name: "Peri - Peri", desc: "4 freshly baked cookies", price: "$4.99", image: pizzaClassic },
+    ],
 };
 
 const MenuPage = () => {
@@ -49,7 +63,7 @@ const MenuPage = () => {
       <div className="pt-24 pb-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-10">
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-foreground mb-3">
+            <h1 className="text-4xl sm:text-5xl text-foreground mb-3">
               Our <span className="text-primary">Menu</span>
             </h1>
             <p className="text-muted-foreground text-lg">All rectangular. All delicious.</p>
@@ -61,7 +75,7 @@ const MenuPage = () => {
               <button
                 key={cat}
                 onClick={() => setActive(cat)}
-                className={`px-6 py-3 font-heading font-bold text-sm sm:text-base uppercase tracking-wide transition-all border-2 border-foreground shadow-[3px_3px_0px_0px_hsl(var(--foreground))] ${
+                className={`px-6 py-3 font-bold text-sm sm:text-base transition-all border-2 border-foreground shadow-[3px_3px_0px_0px_hsl(var(--foreground))] ${
                   active === cat
                     ? "bg-primary text-primary-foreground"
                     : "bg-card text-foreground hover:bg-primary/10"
@@ -89,7 +103,7 @@ const MenuPage = () => {
                 <div className="p-5 flex flex-col flex-1">
                   <h3 className="text-lg font-heading font-bold text-foreground uppercase mb-1">{item.name}</h3>
                   <p className="text-muted-foreground text-sm mb-2 flex-1">{item.desc}</p>
-                  <span className="text-primary font-heading font-bold text-xl">{item.price}</span>
+                  <span className="text-primary font-bold text-xl">{item.price}</span>
                 </div>
               </div>
             ))}
