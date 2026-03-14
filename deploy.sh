@@ -1,0 +1,51 @@
+#!/bin/bash
+
+echo "Starting build..."
+
+npm run build || exit 1
+
+echo "Copying dist files..."
+cp -r dist/* . || exit 1
+
+echo "Adding files to git..."
+git add . || exit 1
+
+echo "Committing..."
+git commit -m "final deploye with seo and working email" || exit 1
+
+echo "Pushing to repo..."
+git push || exit 1
+
+echo "Updating index.html..."
+
+cat << 'EOF' > index.html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recto's Pizza | Rectangle Pizza in Clayton South, Melbourne</title>
+    <meta name="description" content="Recto's Pizza – Rectangle pizza perfection in Clayton South, VIC. Fresh ingredients, bold flavors, perfectly sliced for sharing. Order online or dine in!" />
+    <meta name="author" content="Recto's Pizza" />
+    <meta name="keywords" content="rectangle pizza, Recto's Pizza, Clayton South pizza, Melbourne pizza, pizza delivery, dine in pizza, best pizza near me" />
+    <link rel="canonical" href="https://rectospizza.com" />
+
+    <meta property="og:title" content="Recto's Pizza | Rectangle Pizza Done Right" />
+    <meta property="og:description" content="Fresh, cheesy, perfectly sliced rectangle pizza in Clayton South. Order online or visit us today!" />
+    <meta property="og:url" content="https://rectospizza.com" />
+    <meta property="og:type" content="website" />
+   
+
+    
+    <link rel="icon" href="/favicon.ico" type="image/jpeg" />
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
+EOF
+
+echo "index.html updated successfully!"

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rectospizza.com/sitemap.xml
