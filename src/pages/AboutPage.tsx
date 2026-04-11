@@ -1,8 +1,8 @@
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
-import brandImg from "@/assets/brand-personality.jpg";
+import brandImg from "@/assets/brand-personality.webp";
 import SEO from "@/components/SEO";
-import heroPizza from "@/assets/hero-pizza.jpg";
+import margarita from "@/assets/margarita.webp";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Users, GraduationCap, Briefcase, Gamepad2, Quote, ChefHat, Heart, Sparkles } from "lucide-react";
@@ -30,8 +30,8 @@ const AboutPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="About Us | Recto's Pizza – We Reinvented the Slice"
-        description="Learn about Recto's Pizza – rectangle pizza born from a simple idea. Perfect portions, more toppings, better sharing. Made in Clayton South."
+        title="About Us | Recto's Pizza – Best Rectangle Pizza in Clayton South"
+        description="Discover the story behind Recto's Pizza in Clayton South. We reinvented the slice with our signature rectangle pizzas - perfect portions, more toppings, and better sharing for families and students."
         canonical="https://rectospizza.com/about"
       />
       <Navbar />
@@ -65,7 +65,7 @@ const AboutPage = () => {
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl group">
-                <img src={heroPizza} alt="Recto's pizza" className="w-full h-80 lg:h-[28rem] object-cover transition-transform duration-500 group-hover:scale-105" />
+                <img src={margarita} alt="Recto's delicious vegetarian rectangle pizza" className="w-full h-80 lg:h-[28rem] object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
                 <div className="absolute inset-0 bg-gradient-to-t from-secondary/80 via-transparent to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6">
                   <p className="text-secondary-foreground font-bold text-lg">Born in Clayton South 🧡</p>

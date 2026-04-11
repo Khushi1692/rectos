@@ -1,19 +1,20 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import pizzaClassic from "@/assets/pizza-classic.jpg";
-import pizzaPepper from "@/assets/pizza-pepper.jpg";
-import pizzaVeg from "@/assets/pizza-veg.jpg";
-import pizzaCheese from "@/assets/pizza-cheese.jpg";
-import pizzaBbq from "@/assets/pizza-bbq.jpg";
-import pizzaMeat from "@/assets/pizza-meat.jpg";
+
+import margarita from "@/assets/margarita.webp";
+import bbq_cottage from "@/assets/bbq_cottage.webp";
+import cheesy_garlic from "@/assets/cheesy_garlic.webp";
+import bhoot_julakia from "@/assets/bhoot_julakia.webp";
+import chiplote_fair from "@/assets/chiplote_fair.webp";
+import chocolate_meltdown from "@/assets/chocolate_meltdown.webp";
 
 const pizzas = [
-  { name: "Garden Fresh Veggies Pizza", desc: "Pizza top with zucchini, broccoli, capsicum. tomato, bell pepper, onion, black olive, corn, mushroom, mayonnaise and cheese, seasonin", price: "$17.99", image: pizzaMeat },
-  { name: "Bhooootttttt Jolakia Pizza", desc: "Spicy pizza top with capsicum, tomato, green Chilli, bhoot jolakia sauce, peri peri sauce. onion, mushroom , cheeses & Mayonnaise", price: "$15.99", image: pizzaPepper },
-  { name: "Chipotle Chatakaz Pizza", desc: "Pizza top with chipolte sauce, cheese sauce, capsicum, onion, broccoli, zucchini, sundried tomato, black olive, corn & finish with cheese & seasoning", price: "$13.99", image: pizzaVeg },
-  { name: "Chocolate Meltdown Pizza", desc: "izza with cheese sauce. chocolate sauce, choco chips and cheese", price: "$14.49", image: pizzaCheese },
-  { name: "Classic Margherita Pizza", desc: "Classic Cheese Pizza with marinara sauce, topped with cheddar & mozzarella.", price: "$16.99", image: pizzaBbq },
-  { name: "Barbeque Cottage Cheese Pizza", desc: "Pizza top with Malai paneer, capsicum, onion, sundried toamto, BBQ sauce, pizza cheese", price: "$14.99", image: pizzaClassic },
+  { name: "Margarita", desc: "Classic Margarita Pizza - topped with fresh tomato sauce, creamy mozzarella, and fragrant basil.", price: "$17.99", image: margarita },
+  { name: "Bbq cottage", desc: "BBQ Cottage Pizza - loaded with smoky BBQ sauce, tender cottage cheese (paneer), and crunchy veggies.", price: "$15.99", image: bbq_cottage },
+  { name: "Cheesy garlic", desc: "Cheesy Garlic Bread - loaded with melted cheese, rich garlic butter, and a sprinkle of herbs.", price: "$13.99", image: cheesy_garlic },
+  { name: "Bhoot julakia", desc: "Bhoot Jolokia Pizza - topped with fiery ghost pepper sauce, melted cheese, and loaded veggies.", price: "$14.49", image: bhoot_julakia },
+  { name: "Chiplote fair", desc: "Chipotle Fair Pizza - smoky chipotle base with rich cheese and crunchy veggies on top.", price: "$16.99", image: chiplote_fair },
+  { name: "Chocolate meltdown", desc: "Chocolate Meltdown – rich, gooey chocolate loaded over a soft, warm base.", price: "$14.99", image: chocolate_meltdown },
 
 ];
 
@@ -31,7 +32,7 @@ const MenuSection = () => {
           {pizzas.map((pizza) => (
             <div key={pizza.name} className="bg-card border-2 border-foreground shadow-[4px_4px_0px_0px_hsl(var(--foreground))] overflow-hidden group flex flex-col hover:-translate-y-2 transition-transform duration-300">
               <div className="aspect-square overflow-hidden bg-primary/20">
-                <img src={pizza.image} alt={pizza.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                <img src={pizza.image} alt={pizza.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
               </div>
               <div className="p-5 flex flex-col flex-1">
                 <h3 className="text-lg text-foreground mb-1">{pizza.name}</h3>

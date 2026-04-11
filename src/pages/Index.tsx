@@ -31,8 +31,8 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Recto's Pizza | Rectangle Pizza in Clayton South"
-        description="Fresh, cheesy, perfectly sliced rectangle pizza in Clayton South, Melbourne. Order online or dine in today!"
+        title="Recto's Pizza | Best Rectangle Pizza in Clayton South, Melbourne"
+        description="Craving the best pizza in Clayton South? Discover Recto's Pizza - the home of perfectly sliced, cheesy rectangle pizzas. Fresh ingredients, bold flavors. Order online now!"
         canonical="https://rectospizza.com"
         jsonLd={homepageJsonLd}
       />

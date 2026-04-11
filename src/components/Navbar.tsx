@@ -2,7 +2,7 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
-import rectosLogo from "@/assets/rectos-brand.png";
+import rectosLogo from "@/assets/rectos-brand.webp";
 
 const navLinks = [
   { label: "Home", href: "/" },

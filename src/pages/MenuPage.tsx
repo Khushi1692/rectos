@@ -2,50 +2,55 @@ import { useState } from "react";
 import SEO from "@/components/SEO";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
-import pizzaClassic from "@/assets/pizza-classic.jpg";
-import pizzaPepper from "@/assets/pizza-pepper.jpg";
-import pizzaVeg from "@/assets/pizza-veg.jpg";
-import pizzaCheese from "@/assets/pizza-cheese.jpg";
-import pizzaBbq from "@/assets/pizza-bbq.jpg";
-import pizzaMeat from "@/assets/pizza-meat.jpg";
-import cheesyGarlicBread from "@/assets/cheesy-garlic-bread.jpg";
-import garlicBread from "@/assets/garlic-bread.jpg";
-import coldCoffee from "@/assets/cold-coffee.jpg";
-import kitkatShake from "@/assets/kitkat-shake.jpg";
-import oreoShake from "@/assets/oreoShake.jpg"
-// import periPeri from "@/assets/peri-peri.jpg";
+
+import margarita from "@/assets/margarita.webp";
+import bbq_cottage from "@/assets/bbq_cottage.webp";
+import cheesy_garlic from "@/assets/cheesy_garlic.webp";
+import bhoot_julakia from "@/assets/bhoot_julakia.webp";
+import chiplote_fair from "@/assets/chiplote_fair.webp";
+import chocolate_meltdown from "@/assets/chocolate_meltdown.webp";
+import double_cheese_margarita from "@/assets/double_cheese_margarita.webp";
+import pesto_patola from "@/assets/pesto_patola.webp";
+import sheikh_chilli from "@/assets/sheikh_chilli.webp";
+import tandoori_peppy_paneer from "@/assets/tandoori_peppy_paneer.webp";
+import garden_fresh from "@/assets/garden_fresh.webp";
+import peri_peri_crunchies from "@/assets/peri_peri_crunchies.webp";
+
+import combo from "@/assets/combo.webp";
+
+import coldCoffee from "@/assets/cold-coffee.webp";
+import kitkatShake from "@/assets/kitkat-shake.webp";
+import oreoShake from "@/assets/oreoShake.webp";
 
 const categories = ["Pizza", "Snacks", "Sips + Bites"] as const;
 type Category = (typeof categories)[number];
 
 const menuItems: Record<Category, { name: string; desc: string; price: string; image: string }[]> = {
-   Pizza: [
-    { name: "Garden Fresh Veggies Pizza", desc: "Pizza top with zucchini, broccoli, capsicum. tomato, bell pepper, onion, black olive, corn, mushroom, mayonnaise and cheese, seasonin", price: "$17.99", image: pizzaMeat },
-    { name: "Bhooootttttt Jolakia Pizza", desc: "Spicy pizza top with capsicum, tomato, green Chilli, bhoot jolakia sauce, peri peri sauce. onion, mushroom , cheeses & Mayonnaise", price: "$15.99", image: pizzaPepper },
-    { name: "Peri Peri Crunchies Pizza", desc: "Pizza top with capsicum, onion, tomato, sundried tomato, corn, peri peri mayo, cheese sauce, pizza cheese & crushed nacho chi s", price: "$14.99", image: pizzaClassic },
-    { name: "Chocolate Meltdown Pizza", desc: "izza with cheese sauce. chocolate sauce, choco chips and cheese", price: "$14.49", image: pizzaCheese },
-    { name: "Classic Margherita Pizza", desc: "Classic Cheese Pizza with marinara sauce, topped with cheddar & mozzarella.", price: "$16.99", image: pizzaBbq },
-    { name: "Barbeque Cottage Cheese Pizza", desc: "Pizza top with Malai paneer, capsicum, onion, sundried toamto, BBQ sauce, pizza cheese", price: "$14.99", image: pizzaClassic },
-    { name: "Chipotle Chatakaz Pizza", desc: "Pizza top with chipolte sauce, cheese sauce, capsicum, onion, broccoli, zucchini, sundried tomato, black olive, corn & finish with cheese & seasoning", price: "$13.99", image: pizzaVeg },
-    { name: "Pesto Patola Pizza", desc: "Pizza with homemade pesto sauce, cheese sauce, capsicum, onion, broccoli, zucchini, black olive, mushroom, sundried tomato top with cheese", price: "$13.99", image: pizzaVeg },
-    { name: "Sheikh Chilli Pizza", desc: "Pizza top with sirka onion, pickled chilli, capsicum, cheese blend, pizza cheese, sundried tomato & seasoning", price: "$13.99", image: pizzaVeg },
-    { name: "Soya Chunky Sanki Pizza", desc: "Pizza with masala soya chunks, corn, mayonnaise, tandoori mayo & cheese with seasoning..", price: "$13.99", image: pizzaVeg },
-    { name: "Tandoori Peppy Paneer Pizza", desc: "Tandoori marinated Paneer pizza with capsicum, onion, tandoori mayo & pizza cheese", price: "$13.99", image: pizzaVeg },
-  
-  
+    Pizza: [
+      { name: "Margarita", desc: "Classic Margarita Pizza - topped with fresh tomato sauce, creamy mozzarella, and fragrant basil.", price: "$17.99", image: margarita },
+      { name: "Bbq cottage", desc: "BBQ Cottage Pizza - loaded with smoky BBQ sauce, tender cottage cheese (paneer), and crunchy veggies.", price: "$15.99", image: bbq_cottage },
+      { name: "Cheesy garlic", desc: "Cheesy Garlic Bread - loaded with melted cheese, rich garlic butter, and a sprinkle of herbs.", price: "$14.99", image: cheesy_garlic },
+      { name: "Bhoot julakia", desc: "Bhoot Jolokia Pizza - topped with fiery ghost pepper sauce, melted cheese, and loaded veggies.", price: "$14.49", image: bhoot_julakia },
+      { name: "Chipotle fair", desc: "Chipotle Fair Pizza - smoky chipotle base with rich cheese and crunchy veggies on top.", price: "$16.99", image: chiplote_fair },
+      { name: "Chocolate meltdown", desc: "Chocolate Meltdown - rich, gooey chocolate loaded over a soft, warm base.", price: "$14.99", image: chocolate_meltdown },
+      { name: "Double cheese margarita", desc: "Pizza top with chipolte sauce, cheese sauce, capsicum, onion, broccoli, zucchini, sundried tomato, black olive, corn & finish with cheese & seasoning", price: "$13.99", image: double_cheese_margarita },
+      { name: "Pesto patola", desc: "Pizza with homemade pesto sauce, cheese sauce, capsicum, onion, broccoli, zucchini, black olive, mushroom, sundried tomato top with cheese", price: "$13.99", image: pesto_patola },
+      { name: "Sheikh chilli", desc: "Pizza top with sirka onion, pickled chilli, capsicum, cheese blend, pizza cheese, sundried tomato & seasoning", price: "$13.99", image: sheikh_chilli },
+      { name: "Tandoori Peppy Paneer Pizza", desc: "Tandoori marinated Paneer pizza with capsicum, onion, tandoori mayo & pizza cheese", price: "$13.99", image: tandoori_peppy_paneer },
+      { name: "Garden fresh", desc: "Garden Fresh Pizza - loaded with crisp veggies, juicy tomatoes, and fresh flavors on a cheesy base.", price: "$13.99", image: garden_fresh },
+      { name: "Peri-peri crunchies", desc: "Peri-Peri Crunchies – crispy bites tossed in bold peri-peri seasoning for a fiery kick.", price: "$13.99", image: peri_peri_crunchies },
     ],
     Snacks: [
-      { name: "Cheesy Garlic Bread", desc: "Baked bread with garlic paste blend with cheese sauce & top With pizza cheese, finish with seasoning", price: "$6.99", image: cheesyGarlicBread },
-      { name: "Garlic Bread", desc: "Baked bread with arlic paste & sprinkle seasoni", price: "$7.99", image: garlicBread },
-     
+      { name: "Cheesy Garlic Bread", desc: "Baked bread with garlic paste blend with cheese sauce & top With pizza cheese, finish with seasoning", price: "$6.99", image: cheesy_garlic },
+      { name: "Garlic Bread", desc: "Baked bread with arlic paste & sprinkle seasoni", price: "$7.99", image: cheesy_garlic },
     ],
     "Sips + Bites": [
-      { name: "Cheese", desc: "Ice-cold refreshment", price: "$2.99", image: pizzaClassic },
-      { name: "Classic.", desc: "Sparkling lemonade with mint", price: "$3.49", image: pizzaVeg },
+      { name: "Combo", desc: "Combo Feast – a perfect trio of cheesy classics, spicy delights, and loaded flavors in one box.", price: "$2.99", image: combo },
+      { name: "Classic.", desc: "Sparkling lemonade with mint", price: "$3.49", image: margarita },
       { name: "Cold Coffee", desc: "Thick chocolate milkshake", price: "$5.99", image: coldCoffee },
       { name: "Kitkat Shake", desc: "4 freshly baked cookies", price: "$4.99", image: kitkatShake },
       { name: "Oreo Shake", desc: "4 freshly baked cookies", price: "$4.99", image: oreoShake },
-      { name: "Peri - Peri", desc: "4 freshly baked cookies", price: "$4.99", image: pizzaClassic },
+      { name: "Peri - Peri", desc: "4 freshly baked cookies", price: "$4.99", image: chiplote_fair },
     ],
 };
 
@@ -69,7 +74,6 @@ const MenuPage = () => {
             <p className="text-muted-foreground text-lg">All rectangular. All delicious.</p>
           </div>
 
-          {/* Category tabs - bold bordered style like reference */}
           <div className="flex justify-center gap-3 sm:gap-4 mb-12 flex-wrap">
             {categories.map((cat) => (
               <button
@@ -86,7 +90,6 @@ const MenuPage = () => {
             ))}
           </div>
 
-          {/* Cards - vertical layout like reference */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {menuItems[active].map((item) => (
               <div
@@ -98,6 +101,7 @@ const MenuPage = () => {
                     src={item.image}
                     alt={item.name}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
                   />
                 </div>
                 <div className="p-5 flex flex-col flex-1">
