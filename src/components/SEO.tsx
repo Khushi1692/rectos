@@ -12,7 +12,7 @@ const SEO = ({
   title = "Recto's Pizza | Rectangle Pizza in Clayton South",
   description = "Recto's Pizza – Rectangle pizza perfection in Clayton South, VIC. Fresh ingredients, bold flavors, perfectly sliced for sharing.",
   canonical,
-  image = "/og-image.jpg",
+  image = "/og-image.webp",
   jsonLd,
 }: SEOProps) => (
   <Helmet>

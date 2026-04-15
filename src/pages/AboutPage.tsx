@@ -1,8 +1,8 @@
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
-import brandImg from "@/assets/brand-personality.webp";
+import brandImg from "@/assets/brand-personality_small.webp";
 import SEO from "@/components/SEO";
-import margarita from "@/assets/margarita.webp";
+import journeyImg from "@/assets/our-journey_small.webp";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Users, GraduationCap, Briefcase, Gamepad2, Quote, ChefHat, Heart, Sparkles } from "lucide-react";
@@ -26,13 +26,26 @@ const timeline = [
   { year: "The Launch", text: "Born in Clayton South, serving hundreds of happy customers daily." },
 ];
 
+const aboutJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "About Recto's Pizza",
+  "description": "Learn about the origin of our signature rectangle pizzas in Clayton South.",
+  "publisher": {
+    "@type": "Restaurant",
+    "name": "Recto's Pizza",
+    "url": "https://rectospizza.com"
+  }
+};
+
 const AboutPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="About Us | Recto's Pizza – Best Rectangle Pizza in Clayton South"
-        description="Discover the story behind Recto's Pizza in Clayton South. We reinvented the slice with our signature rectangle pizzas - perfect portions, more toppings, and better sharing for families and students."
+        title="Our Story | The Home of the Rectangle Slice - Recto's Pizza"
+        description="Discover how we reinvented the pizza slice. Born in Clayton South, Recto's Pizza is bold, fun, and rectangle-obsessed. Learn about our journey and why rectangle is better."
         canonical="https://rectospizza.com/about"
+        jsonLd={aboutJsonLd}
       />
       <Navbar />
       <div className="pt-24 pb-0">
@@ -65,7 +78,7 @@ const AboutPage = () => {
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl group">
-                <img src={margarita} alt="Recto's delicious vegetarian rectangle pizza" className="w-full h-80 lg:h-[28rem] object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                <img src={journeyImg} alt="The crafting of Recto's signature rectangle pizza" className="w-full h-80 lg:h-[28rem] object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
                 <div className="absolute inset-0 bg-gradient-to-t from-secondary/80 via-transparent to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6">
                   <p className="text-secondary-foreground font-bold text-lg">Born in Clayton South 🧡</p>

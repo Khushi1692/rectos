@@ -1,12 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
-import margarita from "@/assets/margarita.webp";
-import bbq_cottage from "@/assets/bbq_cottage.webp";
-import cheesy_garlic from "@/assets/cheesy_garlic.webp";
-import bhoot_julakia from "@/assets/bhoot_julakia.webp";
-import chiplote_fair from "@/assets/chiplote_fair.webp";
-import chocolate_meltdown from "@/assets/chocolate_meltdown.webp";
+import margarita from "@/assets/margarita_small.webp";
+import bbq_cottage from "@/assets/bbq_cottage_small.webp";
+import cheesy_garlic from "@/assets/cheesy_garlic_small.webp";
+import bhoot_julakia from "@/assets/bhoot_julakia_small.webp";
+import chiplote_fair from "@/assets/chiplote_fair_small.webp";
+import chocolate_meltdown from "@/assets/chocolate_meltdown_small.webp";
 
 const pizzas = [
   { name: "Margarita", desc: "Classic Margarita Pizza - topped with fresh tomato sauce, creamy mozzarella, and fragrant basil.", price: "$17.99", image: margarita },
@@ -14,7 +14,7 @@ const pizzas = [
   { name: "Cheesy garlic", desc: "Cheesy Garlic Bread - loaded with melted cheese, rich garlic butter, and a sprinkle of herbs.", price: "$13.99", image: cheesy_garlic },
   { name: "Bhoot julakia", desc: "Bhoot Jolokia Pizza - topped with fiery ghost pepper sauce, melted cheese, and loaded veggies.", price: "$14.49", image: bhoot_julakia },
   { name: "Chiplote fair", desc: "Chipotle Fair Pizza - smoky chipotle base with rich cheese and crunchy veggies on top.", price: "$16.99", image: chiplote_fair },
-  { name: "Chocolate meltdown", desc: "Chocolate Meltdown – rich, gooey chocolate loaded over a soft, warm base.", price: "$14.99", image: chocolate_meltdown },
+  { name: "Chocolate meltdown", desc: "Chocolate Meltdown - rich, gooey chocolate loaded over a soft, warm base.", price: "$14.99", image: chocolate_meltdown },
 
 ];
 

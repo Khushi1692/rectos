@@ -1,4 +1,4 @@
-import brandImg from "@/assets/brand-personality.webp";
+import brandImg from "@/assets/brand-personality_small.webp";
 
 const BrandSection = () => {
   return (

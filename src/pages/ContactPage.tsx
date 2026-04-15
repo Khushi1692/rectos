@@ -36,6 +36,26 @@ const contactCards = [
   },
 ];
 
+const contactJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contact Recto's Pizza",
+  "mainEntity": {
+    "@type": "Restaurant",
+    "name": "Recto's Pizza",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "23 Meriton Pl",
+      "addressLocality": "Clayton South",
+      "addressRegion": "VIC",
+      "postalCode": "3169",
+      "addressCountry": "AU"
+    },
+    "telephone": "+61 406 562 036",
+    "email": "info@rectospizza.com"
+  }
+};
+
 const ContactPage = () => {
   const {
     register,
@@ -83,9 +103,10 @@ const ContactPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Contact Us | Recto's Pizza Clayton South"
-        description="Get in touch with Recto's Pizza for reservations, orders, or inquiries."
+        title="Contact Us & Find Our Location | Recto's Pizza Clayton South"
+        description="Visit Recto's Pizza in Clayton South. Call +61 406 562 036 or email info@rectospizza.com for orders and inquiries. Find our location on the map."
         canonical="https://rectospizza.com/contact"
+        jsonLd={contactJsonLd}
       />
 
       <Navbar />

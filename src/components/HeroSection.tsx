@@ -1,12 +1,18 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import heroPizza from "@/assets/hero-pizza-final.webp";
+import heroPizza from "@/assets/hero-pizza-final_small.webp";
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       <div className="absolute inset-0">
-        <img src={heroPizza} alt="Recto's delicious vegetarian rectangle pizza with friends" className="w-full h-full object-cover" />
+        <img 
+          src={heroPizza} 
+          alt="Recto's delicious rectangle pizza" 
+          className="w-full h-full object-cover" 
+          loading="eager"
+          fetchPriority="high"
+        />
         <div className="absolute inset-0 bg-gradient-to-r from-secondary/80 via-secondary/40 to-transparent" />
       </div>
       <div className="container mx-auto px-4 relative z-10 pt-20">
