@@ -18,63 +18,56 @@ import peri_peri_crunchies from "@/assets/peri_peri_crunchies_small.webp";
 
 import combo from "@/assets/combo_small.webp";
 
-import coldCoffee from "@/assets/cold-coffee_small.webp";
-import kitkatShake from "@/assets/kitkat-shake_small.webp";
-import oreoShake from "@/assets/oreoShake_small.webp";
-
-const categories = ["Pizza","Korean", "Garlic Bread", "Cold Drinks", "Combos", "Extra"] as const;
+const categories = ["Pizza","Korean", "Garlic Bread", "Drinks", "Combos", "Extra"] as const;
 type Category = (typeof categories)[number];
 
 const menuItems: Record<Category, { name: string; desc: string; price: string; image: string }[]> = {
     Pizza: [
-      { name: "Margarita", desc: "Classic Margarita Pizza - topped with fresh tomato sauce, creamy mozzarella, and fragrant basil.", price: "$7", image: margarita },
-      { name: "Double cheese margarita", desc: "Pizza top with chipolte sauce, cheese sauce, capsicum, onion, broccoli, zucchini, sundried tomato, black olive, corn & finish with cheese & seasoning", price: "$8.5", image: double_cheese_margarita },
-      { name: "Pickled Harissa", desc: "Homade spicy & tangy bell peppaer sauce with sicke onion", price: "$10", image: "" },
-      { name: "Chattak Soya Makai Burji", desc: "Specially for soya lover with american corn topped with tangy sauce", price: "$12", image: "" },
-      { name: "Tandoori Peppy Paneer Pizza", desc: "Tandoori marinated Paneer pizza with capsicum, onion, tandoori mayo & pizza cheese", price: "$12", image: tandoori_peppy_paneer },
-      { name: "Chipotle chatakaz", desc: "Chipotle chatakaz Pizza - smoky chipotle base with rich cheese and crunchy veggies on top.", price: "$12", image: chiplote_fair },
-      { name: "Bhoot jolakia", desc: "Bhoot Jolokia Pizza - topped with fiery ghost pepper sauce, melted cheese, and loaded veggies.", price: "$12", image: bhoot_julakia },
-      { name: "Pesto patola", desc: "Pizza with homemade pesto sauce, cheese sauce, capsicum, onion, broccoli, zucchini, black olive, mushroom, sundried tomato top with cheese", price: "$12", image: pesto_patola },
-      { name: "Chocolate meltdown", desc: "Chocolate Meltdown - rich, gooey chocolate loaded over a soft, warm base.", price: "$12", image: chocolate_meltdown },
-      { name: "Bbq cottage", desc: "BBQ Cottage Pizza - loaded with smoky BBQ sauce, tender cottage cheese (paneer), and crunchy veggies.", price: "$10", image: bbq_cottage },
-      { name: "Garden fresh", desc: "Garden Fresh Pizza - loaded with crisp veggies, juicy tomatoes, and fresh flavors on a cheesy base.", price: "$12", image: garden_fresh },
-      { name: "Peri-peri crunchies", desc: "Peri-Peri Crunchies – crispy bites tossed in bold peri-peri seasoning for a fiery kick.", price: "$12", image: peri_peri_crunchies },
+      { name: "OG Margarita", desc: "OG Margarita Pizza - topped with fresh tomato sauce, creamy mozzarella, and fragrant basil.", price: "$7", image: margarita },
       { name: "Cheesy Corn Pizza", desc: "A creamy blend of sweet corn and melted cheese on a perfectly baked base.", price: "$9", image: "" },
       { name: "Paneer Onion Pizza", desc: "Loaded with soft paneer cubes, crunchy onions, and melted cheese on a flavorful base.", price: "$10", image: "" },
-      { name: "Mushroom Truffle", desc: "A rich blend of earthy mushrooms and aromatic truffle oil over melted cheese.", price: "$12", image: "" },
       { name: "Madover 4 Cheese", desc: "Loaded with a rich blend of four premium cheeses melted to perfection.", price: "$10", image: "" },
+      { name: "Mushroom Truffle", desc: "A rich blend of earthy mushrooms and aromatic truffle oil over melted cheese.", price: "$12", image: "" },
+      { name: "Garden fresh", desc: "Garden Fresh Pizza - loaded with crisp veggies, juicy tomatoes, and fresh flavors on a cheesy base.", price: "$12", image: garden_fresh },
       { name: "Sheikh chilli", desc: "Pizza top with sirka onion, pickled chilli, capsicum, cheese blend, pizza cheese, sundried tomato & seasoning", price: "$12", image: sheikh_chilli },
-      { name: "Italian retred pizza", desc: "A classic Italian-style pizza topped with rich tomato sauce, herbs, and melted cheese.", price: "$12", image: sheikh_chilli },
+      { name: "Chipotle chatakaz", desc: "Chipotle chatakaz Pizza - smoky chipotle base with rich cheese and crunchy veggies on top.", price: "$12", image: chiplote_fair },
+      { name: "Italian Retred pizza", desc: "A classic Italian-style pizza topped with rich tomato sauce, herbs, and melted cheese.", price: "$12", image: sheikh_chilli },
+      { name: "BBQ Paneer", desc: "BBQ Panner Pizza - loaded with smoky BBQ sauce, tender cottage cheese (paneer), and crunchy veggies.", price: "$12", image: bbq_cottage },
+      { name: "Bhoot Jolakia", desc: "Bhoot Jolokia Pizza - topped with fiery ghost pepper sauce, melted cheese, and loaded veggies.", price: "$12", image: bhoot_julakia },
+      { name: "Tandoori Peppy Paneer", desc: "Tandoori marinated Paneer with capsicum, onion, tandoori mayo & pizza cheese", price: "$12", image: tandoori_peppy_paneer },
       { name: "Indian Tikka Masala", desc: "Loaded with rich tikka masala gravy, spiced toppings, and melted cheese.", price: "$12", image: sheikh_chilli },
-
-
-      // { name: "Cheesy garlic", desc: "Cheesy Garlic Bread - loaded with melted cheese, rich garlic butter, and a sprinkle of herbs.", price: "$9", image: cheesy_garlic },
-      // { name: "Combo", desc: "Combo Feast – a perfect trio of cheesy classics, spicy delights, and loaded flavors in one box.", price: "$2.99", image: combo },
-    ],
+      { name: "Peri-peri Crunchies", desc: "Peri-Peri Crunchies – crispy bites tossed in bold peri-peri seasoning for a fiery kick.", price: "$12", image: peri_peri_crunchies },
+      { name: "Pesto Veg", desc: "Pizza with homemade pesto sauce, cheese sauce, capsicum, onion, broccoli, zucchini, black olive, mushroom, sundried tomato top with cheese", price: "$12", image: pesto_patola },
+      { name: "Chocolate Melt Down", desc: "Chocolate Melt Down - rich, gooey chocolate loaded over a soft, warm base.", price: "$12", image: chocolate_meltdown },
+   ],
      "Korean": [
-      { name: "K-Pop Core Pizza", desc: "A vibrant mix of cheesy goodness, bold sauces, and exciting toppings inspired by Korean flavors.", price: "$13", image: cheesy_garlic },
-      { name: "K-Pop Veggie Pizza", desc: "A colorful mix of fresh veggies, melty cheese, and bold Korean-inspired flavors.", price: "$13", image: cheesy_garlic },
-      { name: "K-Pop Gochujang Pizza", desc: "A bold fusion of spicy gochujang sauce, melted cheese, and flavorful toppings.", price: "$13", image: cheesy_garlic },
+      { name: "K-Pop Core Pizza", desc: "A vibrant mix of cheesy goodness, bold sauces, and exciting toppings inspired by Korean flavors.", price: "$13", image: "" },
+      { name: "K-Pop Veggie Pizza", desc: "A colorful mix of fresh veggies, melty cheese, and bold Korean-inspired flavors.", price: "$13", image: "" },
+      { name: "K-Pop Gochujang Pizza", desc: "A bold fusion of spicy gochujang sauce, melted cheese, and flavorful toppings.", price: "$13", image: "" },
     ],
     "Garlic Bread": [
-      { name: "Cheeso Garlic Bread", desc: "Cheeso Garlic Bread – loaded with melted cheese, rich garlic butter, and a hint of herbs", price: "$6", image: cheesy_garlic },
+      { name: "Cheeso Garlic Bread", desc: "Cheeso Garlic Bread – loaded with melted cheese, rich garlic butter, and a hint of herbs", price: "$6", image: "" },
       { name: "Cheese Garlic Bread", desc: "Baked bread with garlic paste blend with cheese sauce & top With pizza cheese, finish with seasoning", price: "$7", image: cheesy_garlic },
-      { name: "Paneer tikka garlic bread", desc: "Loaded with spiced paneer, rich garlic butter, and melted cheese on a soft, crispy base.", price: "$9", image: cheesy_garlic },
+      { name: "Paneer tikka garlic bread", desc: "Loaded with spiced paneer, rich garlic butter, and melted cheese on a soft, crispy base.", price: "$9", image: "" },
     ],
-    "Cold Drinks": [
+    "Drinks": [
      
-      { name: "Kiwi Cooler", desc: "A refreshing blend of tangy kiwi with a hint of sweetness and icy chill.", price: "$6", image: '' },
-      { name: "Cold Coffee", desc: "A chilled blend of rich coffee, milk, and a touch of sweetness.", price: "$6", image: '' },
-      { name: "Tiramisu Milk Shake", desc: "A creamy blend of coffee, chocolate, and smooth milkshake", price: "$6", image: '' },
-      { name: "Strawberry Milkshake", desc: "A delightful mix of juicy strawberries blended into a smooth, creamy shake.", price: "$6", image: '' },
-      { name: "Green Apple Majitio", desc: "A zesty mix of green apple, mint, and a splash of lime for a refreshing twist.", price: "$6", image: '' },
-      { name: "Chilli Guava Mojito", desc: "A bold blend of juicy guava, mint, and a hint of chilli for a spicy twist.", price: "$6", image: '' },
+      { name: "Water", desc: "", price: "$3", image: '' },
+      { name: "Cold Drink Tin", desc: "", price: "$4", image: '' },
+      { name: "Masala Tea", desc: "", price: "$6", image: '' },
+      { name: "Special Aroma Tea", desc: "", price: "$7", image: '' },
+      { name: "Kiwi Cooler", desc: "A refreshing blend of tangy kiwi with a hint of sweetness and icy chill.", price: "$7", image: '' },
+      { name: "Cold Coffee", desc: "A chilled blend of rich coffee, milk, and a touch of sweetness.", price: "$7", image: '' },
+      { name: "Tiramisu Milkshake", desc: "A creamy blend of coffee, chocolate, and smooth milkshake", price: "$7", image: '' },
+      { name: "Strawberry Milkshake", desc: "A delightful mix of juicy strawberries blended into a smooth, creamy shake.", price: "$7", image: '' },
+      { name: "Green Apple Majitio", desc: "A zesty mix of green apple, mint, and a splash of lime for a refreshing twist.", price: "$7", image: '' },
+      { name: "Chilli Guava Mojito", desc: "A bold blend of juicy guava, mint, and a hint of chilli for a spicy twist.", price: "$7", image: '' },
     ],
     "Combos": [
      
       { name: "OG Combo", desc: "OG Margherita Pizza + Cheesy Garlic Bread ", price: "$12", image: '' },
-      { name: "Full Meal", desc: "Cheesy Corn Pizza + Chesszo Garlic Bread + Kiwi Cooler", price: "$21", image: '' },
       { name: "Double Down", desc: "OG Margherita + Garden Fresh Veggies", price: "$17", image: '' },
+      { name: "Full Meal", desc: "Cheesy Corn Pizza + Chesszo Garlic Bread + Kiwi Cooler", price: "$21", image: '' },
       { name: "Crazy 3 Combo", desc: "Paneer Onion Pizza + Cheesy Corn Pizza + OG Margherita ", price: "$23", image: combo },
     ],
     "Extra": [
@@ -82,6 +75,7 @@ const menuItems: Record<Category, { name: string; desc: string; price: string; i
       { name: "Topping", desc: "OG Margherita Pizza + Cheesy Garlic Bread ", price: "$3", image: '' },
       { name: "Cheese", desc: "Cheesy Corn Pizza + Chesszo Garlic Bread + Kiwi Cooler", price: "$3", image: '' },
       { name: "Any Dip", desc: "OG Margherita + Garden Fresh Veggies", price: "$3", image: '' },
+      { name: "Paneer", desc: "OG Margherita + Garden Fresh Veggies", price: "$3", image: '' },
       
     ],
 
