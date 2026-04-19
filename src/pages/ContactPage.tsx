@@ -9,6 +9,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { useForm } from "react-hook-form";
 import { useToast } from "@/components/ui/use-toast";
 import emailjs from "@emailjs/browser";
+import { ThemeElements, PageTransition } from "@/components/ThemeElements";
+import { MenuCharacter } from "@/components/MenuCharacter";
 
 const contactCards = [
   {
@@ -101,7 +103,8 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative">
+      <ThemeElements variant="light" />
       <SEO
         title="Contact Us & Find Our Location | Recto's Pizza Clayton South"
         description="Visit Recto's Pizza in Clayton South. Call +61 406 562 036 or email info@rectospizza.com for orders and inquiries. Find our location on the map."
@@ -110,8 +113,12 @@ const ContactPage = () => {
       />
 
       <Navbar />
-
-      <div className="pt-32 pb-20">
+      <MenuCharacter 
+        visible={true} 
+        initialMessage="Connect to the Rectos Pizza" 
+        initialSpeech="Connect to the Rectos Pizza" 
+      />
+      <div className="pt-32 pb-20 relative z-10">
         <div className="container mx-auto px-4">
           <div className="text-center mb-14">
             <h1 className="text-4xl sm:text-5xl text-foreground mb-3">

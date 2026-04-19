@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import SEO from "@/components/SEO";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
+import { MenuCharacter } from "@/components/MenuCharacter";
+import { ThemeElements, PageTransition } from "@/components/ThemeElements";
 
 import margarita from "@/assets/margarita_small.webp";
 import bbq_cottage from "@/assets/bbq_cottage_small.webp";
@@ -102,8 +104,55 @@ const menuJsonLd = {
 const MenuPage = () => {
   const [active, setActive] = useState<Category>("Pizza");
 
+  // GSAP Tilt Effect for Menu Cards
+  useEffect(() => {
+    const cards = document.querySelectorAll("[data-menu-item]");
+    cards.forEach((card) => {
+      const onMouseMove = (e: MouseEvent) => {
+        const rect = (card as HTMLElement).getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const rotateX = (y - centerY) / 15;
+        const rotateY = (centerX - x) / 15;
+
+        gsap.to(card, {
+          rotateX,
+          rotateY,
+          transformPerspective: 1000,
+          scale: 1.02,
+          duration: 0.5,
+          ease: "power2.out",
+        });
+      };
+
+      const onMouseLeave = () => {
+        gsap.to(card, {
+          rotateX: 0,
+          rotateY: 0,
+          scale: 1,
+          duration: 0.5,
+          ease: "power2.out",
+        });
+      };
+
+      card.addEventListener("mousemove", onMouseMove as any);
+      card.addEventListener("mouseleave", onMouseLeave);
+      
+      return () => {
+        card.removeEventListener("mousemove", onMouseMove as any);
+        card.removeEventListener("mouseleave", onMouseLeave);
+      };
+    });
+  }, [active]);
+
+
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative">
+      {/* Theme elements - consistent Recto's branding across pages */}
+      <ThemeElements variant="light" />
+
       <SEO
         title="Our Menu | Signature Rectangle Pizzas - Recto's Pizza"
         description="Explore our unique rectangle pizza menu! From classic Margarita to spicy Bhoot Jolokia, we offer perfectly sliced portions with more toppings. Check out our pizzas, snacks, and shakes."
@@ -111,10 +160,18 @@ const MenuPage = () => {
         jsonLd={menuJsonLd}
       />
       <Navbar />
-      <div className="pt-24 pb-20">
+      {/* Character is fixed at bottom-right, always visible */}
+      <MenuCharacter 
+        visible={true} 
+        initialMessage="I am here to serve the menu" 
+        initialSpeech="I am here to serve the menu"
+      />
+
+      {/* Increased pt-32 to prevent navbar overlap */}
+      <div className="pt-32 pb-20 relative z-10">
         <div className="container mx-auto px-4">
           <div className="text-center mb-10">
-            <h1 className="text-4xl sm:text-5xl text-foreground mb-3">
+            <h1 id="menu-title" className="text-4xl sm:text-5xl text-foreground mb-3 inline-block relative">
               Our <span className="text-primary">Menu</span>
             </h1>
             <p className="text-muted-foreground text-lg">All rectangular. All delicious.</p>
@@ -136,10 +193,12 @@ const MenuPage = () => {
             ))}
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {menuItems[active].map((item) => (
+          {/* Menu grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto py-10">
+            {menuItems[active].map((item, index) => (
               <div
                 key={item.name}
+                data-menu-item={`${active}-${index}`}
                 className="bg-card border-2 border-foreground shadow-[4px_4px_0px_0px_hsl(var(--foreground))] overflow-hidden group flex flex-col hover:-translate-y-2 transition-transform duration-300"
               >
                 <div className="aspect-square overflow-hidden bg-primary/20">

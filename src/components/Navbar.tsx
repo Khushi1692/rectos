@@ -30,13 +30,13 @@ const Navbar = () => {
         ? "bg-secondary/95 backdrop-blur-md shadow-md py-1" 
         : "bg-secondary/80 backdrop-blur-sm py-2"
     }`}>
-      <div className="container mx-auto flex items-center justify-between py-2 px-4">
+      <div className="container mx-auto max-w-7xl flex items-center justify-between py-2 px-6">
         <Link to="/" className="flex items-center gap-2">
-          <img src={rectosLogo} alt="Recto's Pizza" className="h-12 w-auto" />
+          <img src={rectosLogo} alt="Recto's Pizza" className="h-16 w-auto" />
         </Link>
 
         {/* Desktop */}
-        <div className="hidden md:flex items-center gap-8 text-base text-secondary-foreground/90 font-medium">
+        <div className="hidden md:flex items-center gap-8 text-lg text-secondary-foreground/90 font-medium">
           {navLinks.map((link) => (
             <Link
               key={link.label}
@@ -54,7 +54,7 @@ const Navbar = () => {
 
         <div className="flex items-center gap-2">
           <Button variant="hero" size="sm" className="gap-1.5" asChild>
-            <a href="https://www.ubereats.com" target="_blank" rel="noopener noreferrer">Order Now</a>
+            <a href="https://www.ubereats.com/au/store/rectos-pizza/" target="_blank" rel="noopener noreferrer">Order Now</a>
           </Button>
           <button
             className="md:hidden w-9 h-9 flex items-center justify-center text-secondary-foreground"
@@ -74,7 +74,7 @@ const Navbar = () => {
               key={link.label}
               to={link.href}
               onClick={() => setMobileOpen(false)}
-              className={`block py-4 text-lg transition-colors font-medium ${
+              className={`block py-4 text-xl transition-colors font-medium ${
                 location.pathname === link.href
                   ? "text-primary font-bold"
                   : "text-secondary-foreground/90 hover:text-primary"

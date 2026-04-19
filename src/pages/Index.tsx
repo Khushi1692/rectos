@@ -7,6 +7,8 @@ import BrandSection from "@/components/BrandSection";
 import ReviewsSection from "@/components/ReviewsSection";
 import FooterSection from "@/components/FooterSection";
 import SEO from "@/components/SEO";
+import { ThemeElements } from "@/components/ThemeElements";
+import { MenuCharacter } from "@/components/MenuCharacter";
 
 const homepageJsonLd = {
   "@context": "https://schema.org",
@@ -29,7 +31,8 @@ const homepageJsonLd = {
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative">
+      <ThemeElements variant="light" />
       <SEO
         title="Recto's Pizza | Best Rectangle Pizza in Clayton South, Melbourne"
         description="Craving the best pizza in Clayton South? Discover Recto's Pizza - the home of perfectly sliced, cheesy rectangle pizzas. Fresh ingredients, bold flavors. Order online now!"
@@ -37,6 +40,11 @@ const Index = () => {
         jsonLd={homepageJsonLd}
       />
       <Navbar />
+      <MenuCharacter 
+        visible={true} 
+        initialMessage="Welcome to the Rectos Pizza" 
+        initialSpeech="Welcome to the Rectos Pizza" 
+      />
       <HeroSection />
       <WhyRectangle />
       <MenuSection />

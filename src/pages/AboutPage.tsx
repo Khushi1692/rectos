@@ -6,6 +6,8 @@ import journeyImg from "@/assets/our-journey_small.webp";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Users, GraduationCap, Briefcase, Gamepad2, Quote, ChefHat, Heart, Sparkles } from "lucide-react";
+import { ThemeElements, PageTransition } from "@/components/ThemeElements";
+import { MenuCharacter } from "@/components/MenuCharacter";
 
 const whyRectangle = [
   { title: "Perfect Portions", desc: "Every slice is equal. No more big vs small fights.", emoji: "🔲" },
@@ -40,7 +42,8 @@ const aboutJsonLd = {
 
 const AboutPage = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative">
+      <ThemeElements variant="light" />
       <SEO
         title="Our Story | The Home of the Rectangle Slice - Recto's Pizza"
         description="Discover how we reinvented the pizza slice. Born in Clayton South, Recto's Pizza is bold, fun, and rectangle-obsessed. Learn about our journey and why rectangle is better."
@@ -48,7 +51,12 @@ const AboutPage = () => {
         jsonLd={aboutJsonLd}
       />
       <Navbar />
-      <div className="pt-24 pb-0">
+      <MenuCharacter 
+        visible={true} 
+        initialMessage="Lets see the story behind to rectos" 
+        initialSpeech="Lets see the story behind to rectos" 
+      />
+      <div className="pt-24 pb-0 relative z-10">
 
         {/* Hero — Big & Bold */}
         <section className="relative pb-20 pt-4 px-4 overflow-hidden">

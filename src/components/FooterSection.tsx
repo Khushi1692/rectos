@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const FooterSection = () => {
   return (
-    <footer id="contact" className="bg-secondary py-16">
+    <footer id="site-footer" className="bg-secondary py-16 relative z-10">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           {/* Brand */}
@@ -53,15 +53,15 @@ const FooterSection = () => {
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-primary shrink-0" />
-                +61 406 562 036
+                +61 415 080 65
               </li>
               <li className="flex items-center gap-2">
                 <Clock className="w-4 h-4 text-primary shrink-0" />
-                Open 11am – 11pm Daily
+                Open 5:00 pm – 11:59 pm Daily
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-primary shrink-0" />
-                info@rectospizza.com
+                rectospizzaaustralia@gmail.com
               </li>
             </ul>
           </div>
