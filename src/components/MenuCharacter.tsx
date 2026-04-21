@@ -42,49 +42,116 @@ export const MenuCharacter = ({ visible, initialMessage, initialSpeech }: MenuCh
   const shadowRef = useRef<HTMLDivElement>(null);
   const speechRef = useRef<HTMLDivElement>(null);
   const [currentText, setCurrentText] = useState(initialMessage || MESSAGES[0]);
-  const [msgIndex, setMsgIndex] = useState(0);
+  const [isTalking, setIsTalking] = useState(false);
+  const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([]);
+
+  // Load voices
+  useEffect(() => {
+    const loadVoices = () => {
+      const availableVoices = window.speechSynthesis.getVoices();
+      if (availableVoices.length > 0) {
+        setVoices(availableVoices);
+      }
+    };
+
+    loadVoices();
+    if (typeof window !== 'undefined' && window.speechSynthesis) {
+      window.speechSynthesis.onvoiceschanged = loadVoices;
+    }
+  }, []);
 
   // Voice synthesis function
   const speakMessage = (text: string) => {
     if (!('speechSynthesis' in window)) return;
     
+    // Ensure voices are loaded
+    if (voices.length === 0) {
+      const v = window.speechSynthesis.getVoices();
+      if (v.length > 0) setVoices(v);
+    }
+    
     window.speechSynthesis.cancel();
     const utterance = new SpeechSynthesisUtterance(text);
-    utterance.rate = 1.0;
-    utterance.pitch = 1.1;
     
-    const voices = window.speechSynthesis.getVoices();
+    // Adjust rate and pitch for more human-like feel
+    utterance.rate = 0.85; // Slightly slower for clarity and warmth
+    utterance.pitch = 1.0; 
+    
     if (voices.length > 0) {
-      const preferredVoice = voices.find(v => v.name.includes("Google") || v.name.includes("Female")) || voices[0];
+      // Prioritize natural sounding English voices
+      const preferredVoice = 
+        voices.find(v => v.name.toLowerCase().includes("natural") && v.lang.startsWith("en")) ||
+        voices.find(v => v.name.toLowerCase().includes("premium") && v.lang.startsWith("en")) ||
+        voices.find(v => v.name.toLowerCase().includes("google") && v.name.toLowerCase().includes("female")) ||
+        voices.find(v => v.name.toLowerCase().includes("google") && v.lang.startsWith("en")) ||
+        voices.find(v => v.name.toLowerCase().includes("female") && v.lang.startsWith("en")) ||
+        voices.find(v => v.lang.startsWith("en")) ||
+        voices[0];
+      
       utterance.voice = preferredVoice;
     }
+
+    utterance.onstart = () => setIsTalking(true);
+    utterance.onend = () => setIsTalking(false);
+    utterance.onerror = () => setIsTalking(false);
     
     window.speechSynthesis.speak(utterance);
   };
+
+  const hasSpokenRef = useRef(false);
 
   // Welcome speech (once) and message rotation
   useEffect(() => {
     if (!visible) return;
 
-    let hasSpoken = false;
-    
     const triggerSpeech = () => {
-      if (hasSpoken) return;
-      speakMessage(initialSpeech || "Welcome to Recto's Pizza!");
-      hasSpoken = true;
-      // Remove listeners once spoken
-      window.removeEventListener("click", triggerSpeech);
-      window.removeEventListener("touchstart", triggerSpeech);
+      if (hasSpokenRef.current) return;
+      
+      if (!('speechSynthesis' in window)) return;
+      
+      window.speechSynthesis.cancel();
+      const text = initialSpeech || "Welcome to Recto's Pizza!";
+      const utterance = new SpeechSynthesisUtterance(text);
+      
+      utterance.rate = 0.85;
+      utterance.pitch = 1.0;
+      
+      if (voices.length > 0) {
+        const preferredVoice = 
+          voices.find(v => v.name.toLowerCase().includes("natural") && v.lang.startsWith("en")) ||
+          voices.find(v => v.name.toLowerCase().includes("premium") && v.lang.startsWith("en")) ||
+          voices.find(v => v.name.toLowerCase().includes("google") && v.name.toLowerCase().includes("female")) ||
+          voices.find(v => v.name.toLowerCase().includes("google") && v.lang.startsWith("en")) ||
+          voices.find(v => v.name.toLowerCase().includes("female") && v.lang.startsWith("en")) ||
+          voices.find(v => v.lang.startsWith("en")) ||
+          voices[0];
+        utterance.voice = preferredVoice;
+      }
+
+      utterance.onstart = () => {
+        setIsTalking(true);
+        hasSpokenRef.current = true;
+        // Cleanup listeners ONLY when speech successfully starts
+        const events = ["click", "touchstart", "scroll", "mousedown", "keydown", "mousemove", "wheel"];
+        events.forEach(event => window.removeEventListener(event, triggerSpeech));
+      };
+      
+      utterance.onend = () => setIsTalking(false);
+      utterance.onerror = () => {
+        setIsTalking(false);
+        // If it errored (likely blocked), we DON'T set hasSpokenRef to true
+        // so that the next user interaction can try again.
+      };
+      
+      window.speechSynthesis.speak(utterance);
     };
 
-    // Attempt to speak after 2 seconds
-    const welcomeTimeout = setTimeout(() => {
-      triggerSpeech();
-    }, 2000);
+    // Auto-trigger attempt
+    const welcomeTimeout = setTimeout(() => triggerSpeech(), 500);
 
-    // Also add interaction listeners to bypass browser autoplay blocks
-    window.addEventListener("click", triggerSpeech);
-    window.addEventListener("touchstart", triggerSpeech);
+    // Backup interaction listeners
+    const events = ["click", "touchstart", "scroll", "mousedown", "keydown", "mousemove", "wheel"];
+    events.forEach(event => window.addEventListener(event, triggerSpeech, { once: true }));
 
     // Footer avoidance logic
     const footerObserver = new IntersectionObserver(
@@ -104,11 +171,11 @@ export const MenuCharacter = ({ visible, initialMessage, initialSpeech }: MenuCh
     return () => {
       clearTimeout(welcomeTimeout);
       footerObserver.disconnect();
-      window.removeEventListener("click", triggerSpeech);
-      window.removeEventListener("touchstart", triggerSpeech);
+      const events = ["click", "touchstart", "scroll", "mousedown", "keydown", "mousemove", "wheel"];
+      events.forEach(event => window.removeEventListener(event, triggerSpeech));
       window.speechSynthesis.cancel();
     };
-  }, [visible, initialSpeech]);
+  }, [visible, initialSpeech, voices]);
 
   // Update text and animate bubble in (NO rotation, text stays fixed)
   useEffect(() => {
@@ -119,12 +186,27 @@ export const MenuCharacter = ({ visible, initialMessage, initialSpeech }: MenuCh
     if (speechRef.current) {
       gsap.fromTo(speechRef.current, 
         { scale: 0, opacity: 0 }, 
-        { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.7)" }
+        { 
+          scale: 1, 
+          opacity: 1, 
+          duration: 0.5, 
+          ease: "back.out(1.7)",
+          onComplete: () => {
+            // Subtle pulse to invite click if not yet spoken
+            gsap.to(speechRef.current, {
+              scale: 1.05,
+              duration: 1,
+              repeat: -1,
+              yoyo: true,
+              ease: "sine.inOut"
+            });
+          }
+        }
       );
     }
   }, [initialMessage]);
 
-  // Animations: Floating, Breathing, Looking around
+  // Animations: Floating, Breathing, Looking around, and Talking
   useEffect(() => {
     if (!visible || !characterRef.current || !shadowRef.current || !mascotImgRef.current) return;
 
@@ -157,7 +239,24 @@ export const MenuCharacter = ({ visible, initialMessage, initialSpeech }: MenuCh
     };
     lookAround();
 
-    // 3. Shadow sync
+    // 3. Talking animation (pulsing scale and slight rotation)
+    let talkTl: gsap.core.Timeline | null = null;
+    if (isTalking) {
+      talkTl = gsap.timeline({ repeat: -1 });
+      talkTl.to(mascotImgRef.current, {
+        scale: 1.05,
+        rotate: -2,
+        duration: 0.1,
+        ease: "sine.inOut"
+      }).to(mascotImgRef.current, {
+        scale: 1,
+        rotate: 2,
+        duration: 0.1,
+        ease: "sine.inOut"
+      });
+    }
+
+    // 4. Shadow sync
     gsap.to(shadowRef.current, { 
       opacity: 0.15, 
       scale: 0.9, 
@@ -169,9 +268,10 @@ export const MenuCharacter = ({ visible, initialMessage, initialSpeech }: MenuCh
 
     return () => {
       floatTl.kill();
+      if (talkTl) talkTl.kill();
       gsap.killTweensOf(mascotImgRef.current);
     };
-  }, [visible]);
+  }, [visible, isTalking]);
 
   if (!visible) return null;
 

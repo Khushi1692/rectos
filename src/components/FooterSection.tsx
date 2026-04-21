@@ -38,7 +38,7 @@ const FooterSection = () => {
             <h4 className="text-lg text-secondary-foreground mb-4">Our Services</h4>
             <ul className="space-y-2.5 text-sm text-secondary-foreground/70">
               <li className="flex items-center gap-2"><Pizza className="w-4 h-4 text-primary" /> Take Away</li>
-              <li className="flex items-center gap-2"><CreditCard className="w-4 h-4 text-primary" /> Online Ordering</li>
+              <li className="flex items-center gap-2"><CreditCard className="w-4 h-4 text-primary" /> Uber Eats & DoorDash</li>
               <li className="flex items-center gap-2"><UtensilsCrossed className="w-4 h-4 text-primary" /> Dine In</li>
             </ul>
           </div>
@@ -55,9 +55,12 @@ const FooterSection = () => {
                 <Phone className="w-4 h-4 text-primary shrink-0" />
                 +61 415 080 65
               </li>
-              <li className="flex items-center gap-2">
-                <Clock className="w-4 h-4 text-primary shrink-0" />
-                Open 5:00 pm – 11:59 pm Daily
+              <li className="flex items-start gap-2">
+                <Clock className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                <div>
+                  <p>Mon – Thu: 5:00 PM – 10:59 PM</p>
+                  <p>Fri – Sun: 5:00 PM – 11:59 PM</p>
+                </div>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-primary shrink-0" />

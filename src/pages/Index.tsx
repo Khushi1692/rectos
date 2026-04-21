@@ -26,7 +26,7 @@ const homepageJsonLd = {
   telephone: "+61406562036",
   servesCuisine: "Pizza",
   url: "https://rectospizza.com",
-  openingHours: ["Mo-Th 17:00-23:00", "Fr-Su 17:00-00:00"],
+  openingHours: ["Mo-Th 17:00-22:59", "Fr-Su 17:00-23:59"],
 };
 
 const Index = () => {
@@ -42,8 +42,8 @@ const Index = () => {
       <Navbar />
       <MenuCharacter 
         visible={true} 
-        initialMessage="Welcome to the Rectos Pizza" 
-        initialSpeech="Welcome to the Rectos Pizza" 
+        initialMessage="Hi! Welcome to Recto's Pizza! 🍕" 
+        initialSpeech="Hi! Welcome to Recto's Pizza. " 
       />
       <HeroSection />
       <WhyRectangle />

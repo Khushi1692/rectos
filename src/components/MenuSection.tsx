@@ -9,12 +9,12 @@ import chiplote_fair from "@/assets/chiplote_fair_small.webp";
 import chocolate_meltdown from "@/assets/chocolate_meltdown_small.webp";
 
 const pizzas = [
-  { name: "Margarita", desc: "Classic Margarita Pizza - topped with fresh tomato sauce, creamy mozzarella, and fragrant basil.", price: "$17.99", image: margarita },
-  { name: "Bbq cottage", desc: "BBQ Cottage Pizza - loaded with smoky BBQ sauce, tender cottage cheese (paneer), and crunchy veggies.", price: "$15.99", image: bbq_cottage },
-  { name: "Cheesy garlic", desc: "Cheesy Garlic Bread - loaded with melted cheese, rich garlic butter, and a sprinkle of herbs.", price: "$13.99", image: cheesy_garlic },
-  { name: "Bhoot julakia", desc: "Bhoot Jolokia Pizza - topped with fiery ghost pepper sauce, melted cheese, and loaded veggies.", price: "$14.49", image: bhoot_julakia },
-  { name: "Chiplote fair", desc: "Chipotle Fair Pizza - smoky chipotle base with rich cheese and crunchy veggies on top.", price: "$16.99", image: chiplote_fair },
-  { name: "Chocolate meltdown", desc: "Chocolate Meltdown - rich, gooey chocolate loaded over a soft, warm base.", price: "$14.99", image: chocolate_meltdown },
+  { name: "OG Margarita", desc: "OG Margarita Pizza - topped with fresh tomato sauce, creamy mozzarella, and fragrant basil.", price: "$7", image: margarita },
+  { name: "Bbq Paneer", desc: "BBQ Paneer Pizza - loaded with smoky BBQ sauce, tender cottage cheese (paneer), and crunchy veggies.", price: "$12", image: bbq_cottage },
+  { name: "Cheesy garlic", desc: "Cheesy Garlic Bread - loaded with melted cheese, rich garlic butter, and a sprinkle of herbs.", price: "$7", image: cheesy_garlic },
+  { name: "Bhoot Jolakia", desc: "Bhoot Jolokia Pizza - topped with fiery ghost pepper sauce, melted cheese, and loaded veggies.", price: "$12", image: bhoot_julakia },
+  { name: "Chipotle Chatakaz", desc: "Chipotle Chatakaz Pizza - smoky chipotle base with rich cheese and crunchy veggies on top.", price: "$12", image: chiplote_fair },
+  { name: "Chocolate Meltdown", desc: "Chocolate Meltdown - rich, gooey chocolate loaded over a soft, warm base.", price: "$12", image: chocolate_meltdown },
 
 ];
 

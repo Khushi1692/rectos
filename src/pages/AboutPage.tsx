@@ -1,11 +1,15 @@
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
-import brandImg from "@/assets/brand-personality_small.webp";
+import brandImg from "@/assets/brand-personality_small.png";
 import SEO from "@/components/SEO";
-import journeyImg from "@/assets/our-journey_small.webp";
+import heroImg from "@/assets/brand-personality_small.png";
+import aboutMainImg from "@/assets/about-main.png";
+import rootImg from "@/assets/root.png";
+import conceptImg from "@/assets/concept.png";
+import growthImg from "@/assets/growth.png";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Users, GraduationCap, Briefcase, Gamepad2, Quote, ChefHat, Heart, Sparkles } from "lucide-react";
+import { Users, GraduationCap, Briefcase, Gamepad2, Quote, ChefHat, Heart, Sparkles, Pizza, MapPin, Rocket } from "lucide-react";
 import { ThemeElements, PageTransition } from "@/components/ThemeElements";
 import { MenuCharacter } from "@/components/MenuCharacter";
 
@@ -23,9 +27,9 @@ const audience = [
 ];
 
 const timeline = [
-  { year: "The Idea", text: "Why should all pizzas be round? A simple question that changed everything." },
-  { year: "The Shape", text: "We experimented until we found the perfect rectangle — crispy corners, fluffy center." },
-  { year: "The Launch", text: "Born in Clayton South, serving hundreds of happy customers daily." },
+  { year: "The Roots", text: "Our story began in Ahmedabad, India, where the passion for bold flavors and perfect dough was first ignited." },
+  { year: "The Concept", text: "We brought that passion to Australia, experimenting until we found the perfect rectangle — crispy corners, fluffy center." },
+  { year: "The Growth", text: "Now proud to call Clayton South home, serving our signature rectangle pizzas to the Melbourne community." },
 ];
 
 const aboutJsonLd = {
@@ -53,64 +57,188 @@ const AboutPage = () => {
       <Navbar />
       <MenuCharacter 
         visible={true} 
-        initialMessage="Lets see the story behind to rectos" 
-        initialSpeech="Lets see the story behind to rectos" 
+        initialMessage="Let's see the story behind the Rectos" 
+        initialSpeech="Let's see the story behind the Rectos" 
       />
       <div className="pt-24 pb-0 relative z-10">
 
         {/* Hero — Big & Bold */}
         <section className="relative pb-20 pt-4 px-4 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
-          <div className="relative container mx-auto text-center max-w-3xl">
-            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary font-bold text-sm px-4 py-2 rounded-full mb-6">
-              <Sparkles className="w-4 h-4" />
-              Our Story
-            </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl text-foreground mb-5 leading-tight">
-              Not Your <span className="text-primary">Regular</span> Pizza Brand
-            </h1>
-            <p className="text-muted-foreground text-lg sm:text-xl max-w-xl mx-auto mb-4">
-              We didn't change the pizza.<br />We changed the shape.
-            </p>
-            <div className="inline-block bg-secondary text-secondary-foreground px-6 py-3 rounded-2xl mt-4">
-              <p className="font-bold text-sm tracking-wide">
-                <Quote className="w-4 h-4 inline mr-1 text-primary" />
-                We didn't reinvent pizza. We reinvented the slice.
-              </p>
+          <div className="relative container mx-auto text-center max-w-6xl">
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.3fr] gap-12 items-center text-left">
+              <div>
+                <div className="inline-flex items-center gap-2 bg-primary/10 text-primary font-bold text-sm px-4 py-2 rounded-full mb-6">
+                  <Sparkles className="w-4 h-4" />
+                  Our Story
+                </div>
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl text-foreground mb-5 leading-tight">
+                  Not Your <span className="text-primary">Regular</span> Pizza Brand
+                </h1>
+                <p className="text-muted-foreground text-lg sm:text-xl mb-6">
+                  We didn't change the pizza.<br />We changed the shape.
+                </p>
+                <div className="bg-secondary text-secondary-foreground px-6 py-3 rounded-2xl inline-block">
+                  <p className="font-bold text-sm tracking-wide">
+                    <Quote className="w-4 h-4 inline mr-1 text-primary" />
+                    We didn't reinvent pizza. We reinvented the slice.
+                  </p>
+                </div>
+              </div>
+              <div className="relative group">
+                <div className="relative aspect-[4/3] bg-[#1a130f] border-[12px] border-white rounded-sm shadow-2xl -rotate-2 group-hover:rotate-0 transition-all duration-700 overflow-hidden">
+                  <img src={heroImg} alt="Recto's Hero" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                </div>
+                {/* Subtle background glow */}
+                <div className="absolute -inset-4 bg-primary/10 blur-3xl -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Our Story — Timeline Style */}
-        <section className="py-20 bg-secondary">
+        {/* Our Journey — Modern Storytelling Section */}
+        <section className="py-24 bg-gradient-to-br from-[#0f0a07] to-[#1a130f] relative overflow-hidden">
           <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl group">
-                <img src={journeyImg} alt="The crafting of Recto's signature rectangle pizza" className="w-full h-80 lg:h-[28rem] object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
-                <div className="absolute inset-0 bg-gradient-to-t from-secondary/80 via-transparent to-transparent" />
-                <div className="absolute bottom-6 left-6 right-6">
-                  <p className="text-secondary-foreground font-bold text-lg">Born in Clayton South 🧡</p>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center max-w-7xl mx-auto">
+              
+              {/* Left Side: Visual Container (Placeholder) */}
+              <div className="relative group">
+                <div className="relative aspect-[4/5] sm:aspect-square lg:aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] bg-[#1a130f] border border-white/5">
+                  <img 
+                    src={aboutMainImg} 
+                    alt="Recto's Journey" 
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+                  />
+                  
+                  {/* Soft shadow & gradient overlay as requested */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#0f0a07]/60 pointer-events-none" />
+                  <div className="absolute inset-0 shadow-[inset_0_0_100px_rgba(0,0,0,0.4)] pointer-events-none" />
                 </div>
+                
+                {/* Subtle background glow */}
+                <div className="absolute -inset-4 bg-primary/5 blur-3xl -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
               </div>
-              <div>
-                <h2 className="text-3xl sm:text-4xl text-secondary-foreground mb-8">
-                  Our <span className="text-primary">Journey</span>
-                </h2>
-                <div className="space-y-6">
-                  {timeline.map((item, i) => (
-                    <div key={i} className="flex gap-4">
-                      <div className="flex flex-col items-center">
-                        <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-primary-foreground font-bold text-sm shrink-0">
-                          {i + 1}
-                        </div>
-                        {i < timeline.length - 1 && <div className="w-0.5 h-full bg-primary/20 mt-2" />}
+
+              {/* Right Side: Content & Timeline */}
+              <div className="relative">
+                <div className="mb-12">
+                  <h2 className="text-5xl sm:text-6xl font-black tracking-tighter mb-4 leading-none">
+                    <span className="text-white block">OUR</span>
+                    <span className="text-primary block">JOURNEY</span>
+                  </h2>
+                  <div className="w-20 h-1 bg-primary rounded-full mb-6" />
+                  <p className="text-white/60 text-lg max-w-md italic font-medium">
+                    A story baked with passion, shaped with purpose.
+                  </p>
+                </div>
+
+                {/* Vertical Timeline with Curved Path Effect */}
+                <div className="relative space-y-24">
+                  {/* Vertical Connecting Line (Subtle & Curved approach) */}
+                  <div className="absolute left-[20%] top-2 bottom-2 w-0.5 border-l-2 border-dashed border-primary/20 hidden md:block" />
+
+                  {/* Step 1: THE ROOTS */}
+                  <div className="relative flex flex-col md:flex-row items-center gap-8 group">
+                    <div className="relative">
+                      {/* Roots Polaroid Image */}
+                      <div className="w-full md:w-56 aspect-[4/3] bg-[#1a130f] border-[6px] border-white rounded-sm shadow-xl -rotate-2 group-hover:rotate-0 transition-transform duration-500 shrink-0 overflow-hidden">
+                        <img src={rootImg} alt="Ahmedabad Roots" className="w-full h-full object-cover" />
                       </div>
-                      <div className="pb-2">
-                        <h3 className="text-lg text-secondary-foreground mb-1">{item.year}</h3>
-                        <p className="text-secondary-foreground/70 leading-relaxed">{item.text}</p>
+                      {/* Icon on the RIGHT of the photo */}
+                      <div className="absolute -right-5 -bottom-5 z-20 w-12 h-12 rounded-full bg-primary flex items-center justify-center text-[#0f0a07] shadow-[0_0_20px_rgba(255,112,67,0.4)] group-hover:scale-110 transition-transform duration-300">
+                        <MapPin className="w-6 h-6" />
                       </div>
                     </div>
-                  ))}
+                    <div className="pt-4 md:pt-0">
+                      <h3 className="text-2xl font-bold text-white mb-2 tracking-wide group-hover:text-primary transition-colors uppercase">The Roots</h3>
+                      <p className="text-white/70 leading-relaxed max-w-sm">
+                        Our story began in Ahmedabad, India, where the passion for bold flavors and perfect dough was first ignited.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Step 2: THE CONCEPT */}
+                  <div className="relative flex flex-col md:flex-row items-center gap-8 group md:translate-x-12">
+                    <div className="relative order-1 md:order-2">
+                      {/* Concept Polaroid Image */}
+                      <div className="w-full md:w-56 aspect-[4/3] bg-[#1a130f] border-[6px] border-white rounded-sm shadow-xl rotate-2 group-hover:rotate-0 transition-transform duration-500 shrink-0 overflow-hidden">
+                        <img src={conceptImg} alt="Melbourne Concept" className="w-full h-full object-cover" />
+                      </div>
+                      {/* Icon on the LEFT of the photo */}
+                      <div className="absolute -left-5 -bottom-5 z-20 w-12 h-12 rounded-full bg-[#1a130f] border-2 border-primary/50 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-[#0f0a07] transition-all duration-300">
+                        <Sparkles className="w-6 h-6" />
+                      </div>
+                    </div>
+                    <div className="pt-4 md:pt-0 order-2 md:order-1 text-right">
+                      <h3 className="text-2xl font-bold text-white mb-2 tracking-wide group-hover:text-primary transition-colors uppercase">The Concept</h3>
+                      <p className="text-white/70 leading-relaxed max-w-sm ml-auto">
+                        We brought that passion to Australia, experimenting until we found the perfect rectangle — crispy corners, fluffy center.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Step 3: THE GROWTH */}
+                  <div className="relative flex flex-col md:flex-row items-center gap-8 group">
+                    <div className="relative">
+                      {/* Growth Polaroid Image */}
+                      <div className="w-full md:w-56 aspect-[4/3] bg-[#1a130f] border-[6px] border-white rounded-sm shadow-xl -rotate-1 group-hover:rotate-0 transition-transform duration-500 shrink-0 overflow-hidden">
+                        <img src={growthImg} alt="Clayton South Growth" className="w-full h-full object-cover" />
+                      </div>
+                      {/* Icon on the RIGHT of the photo */}
+                      <div className="absolute -right-5 -bottom-5 z-20 w-12 h-12 rounded-full bg-[#1a130f] border-2 border-primary/50 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-[#0f0a07] transition-all duration-300">
+                        <Rocket className="w-6 h-6" />
+                      </div>
+                    </div>
+                    <div className="pt-4 md:pt-0">
+                      <h3 className="text-2xl font-bold text-white mb-2 tracking-wide group-hover:text-primary transition-colors uppercase">The Growth</h3>
+                      <p className="text-white/70 leading-relaxed max-w-sm">
+                        Now proud to call Clayton South home, serving our signature rectangle pizzas to the Melbourne community.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Bottom Info Bar — Matching the reference footer */}
+            <div className="mt-24 max-w-6xl mx-auto bg-[#1a130f]/60 backdrop-blur-md border border-white/5 rounded-3xl p-8 sm:p-12 shadow-2xl relative">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div className="space-y-3">
+                   <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center">
+                     <Pizza className="w-6 h-6 text-primary" />
+                   </div>
+                   <h4 className="text-white font-bold text-sm tracking-widest uppercase">Bold Flavors</h4>
+                   <p className="text-white/50 text-xs leading-relaxed">Unique combinations that hit different.</p>
+                </div>
+                <div className="space-y-3">
+                   <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center">
+                     <Sparkles className="w-6 h-6 text-primary" />
+                   </div>
+                   <h4 className="text-white font-bold text-sm tracking-widest uppercase">Rectangle Rev</h4>
+                   <p className="text-white/50 text-xs leading-relaxed">Not your regular shape or experience.</p>
+                </div>
+                <div className="space-y-3">
+                   <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center">
+                     <Heart className="w-6 h-6 text-primary" />
+                   </div>
+                   <h4 className="text-white font-bold text-sm tracking-widest uppercase">Made with Purpose</h4>
+                   <p className="text-white/50 text-xs leading-relaxed">Quality ingredients, crafted with care.</p>
+                </div>
+                <div className="space-y-3">
+                   <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center">
+                     <Users className="w-6 h-6 text-primary" />
+                   </div>
+                   <h4 className="text-white font-bold text-sm tracking-widest uppercase">Community First</h4>
+                   <p className="text-white/50 text-xs leading-relaxed">Proudly serving our local community.</p>
+                </div>
+              </div>
+              
+              {/* Post-it Note style element */}
+              <div className="absolute -bottom-6 -right-4 hidden lg:block bg-[#e8dcc4] p-6 rounded-sm shadow-xl rotate-3 max-w-[180px] border-b-4 border-r-4 border-black/10">
+                <p className="text-[#3d2b1f] font-black text-xs uppercase leading-tight mb-2">Different Shape. Bigger Experience.</p>
+                <div className="flex items-center gap-1 text-primary">
+                  <Heart className="w-3 h-3 fill-current" />
+                  <span className="text-[10px] font-bold">THAT'S RECTO'S</span>
                 </div>
               </div>
             </div>

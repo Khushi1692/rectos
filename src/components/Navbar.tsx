@@ -24,11 +24,13 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const isHome = location.pathname === "/";
+
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       scrolled 
         ? "bg-secondary/95 backdrop-blur-md shadow-md py-1" 
-        : "bg-secondary/80 backdrop-blur-sm py-2"
+        : (isHome ? "bg-transparent py-3" : "bg-secondary/95 backdrop-blur-md py-2")
     }`}>
       <div className="container mx-auto max-w-7xl flex items-center justify-between py-2 px-6">
         <Link to="/" className="flex items-center gap-2">
@@ -53,8 +55,8 @@ const Navbar = () => {
         </div>
 
         <div className="flex items-center gap-2">
-          <Button variant="hero" size="sm" className="gap-1.5" asChild>
-            <a href="https://www.ubereats.com/au/store/rectos-pizza/" target="_blank" rel="noopener noreferrer">Order Now</a>
+          <Button variant="outline" className="border-primary/50 text-primary hover:bg-primary hover:text-white rounded-full px-6" asChild>
+            <a href="https://www.ubereats.com/au/store/rectos-pizza/m9zXvT5_X_OfV0w6x_6vGg" target="_blank" rel="noopener noreferrer">Order Now</a>
           </Button>
           <button
             className="md:hidden w-9 h-9 flex items-center justify-center text-secondary-foreground"
