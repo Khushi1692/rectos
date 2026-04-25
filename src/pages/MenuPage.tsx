@@ -1,4 +1,6 @@
 import { useState, useRef, useEffect } from "react";
+import gsap from "gsap";
+import { Button } from "@/components/ui/button";
 import SEO from "@/components/SEO";
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
@@ -17,10 +19,11 @@ import sheikh_chilli from "@/assets/sheikh_chilli_small.webp";
 import tandoori_peppy_paneer from "@/assets/tandoori_peppy_paneer_small.webp";
 import garden_fresh from "@/assets/garden_fresh_small.webp";
 import peri_peri_crunchies from "@/assets/peri_peri_crunchies_small.webp";
+import tea from "@/assets/tea.jpeg";
 
 import combo from "@/assets/combo_small.webp";
 
-const categories = ["Pizza","Korean", "Garlic Bread", "Drinks", "Combos", "Extra"] as const;
+const categories = ["Pizza","Korian", "Garlic Bread", "Drinks", "Combos", "Extra"] as const;
 type Category = (typeof categories)[number];
 
 const menuItems: Record<Category, { name: string; desc: string; price: string; image: string; tags?: string[] }[]> = {
@@ -42,7 +45,7 @@ const menuItems: Record<Category, { name: string; desc: string; price: string; i
       { name: "Pesto Veg", desc: "Pizza with homemade pesto sauce, cheese sauce, capsicum, onion, broccoli, zucchini, black olive, mushroom, sundried tomato top with cheese", price: "$12", image: pesto_patola },
       { name: "Chocolate Melt Down", desc: "Chocolate Melt Down - rich, gooey chocolate loaded over a soft, warm base.", price: "$12", image: chocolate_meltdown, tags: ["Jain", "Swaminarayan"] },
    ],
-     "Korean": [
+     "Korian": [
       { name: "K-Pop Core Pizza", desc: "A vibrant mix of cheesy goodness, bold sauces, and exciting toppings inspired by Korean flavors.", price: "$13", image: "" },
       { name: "K-Pop Veggie Pizza", desc: "A colorful mix of fresh veggies, melty cheese, and bold Korean-inspired flavors.", price: "$13", image: "" },
       { name: "K-Pop Gochujang Pizza", desc: "A bold fusion of spicy gochujang sauce, melted cheese, and flavorful toppings.", price: "$13", image: "" },
@@ -56,7 +59,7 @@ const menuItems: Record<Category, { name: string; desc: string; price: string; i
       { name: "Water", desc: "", price: "$3", image: '' },
       { name: "Cold Drinks Tin", desc: "", price: "$4", image: '' },
       { name: "Masala Tea", desc: "", price: "$6", image: '' },
-      { name: "Special Aroma Tea", desc: "", price: "$7", image: '' },
+      { name: "Special Aroma Tea", desc: "", price: "$7", image: tea },
       { name: "Kiwi Cooler", desc: "A refreshing blend of tangy kiwi with a hint of sweetness and icy chill.", price: "$7", image: '' },
       { name: "Cold Coffee", desc: "A chilled blend of rich coffee, milk, and a touch of sweetness.", price: "$7", image: '' },
       { name: "Tiramisu Milkshake", desc: "A creamy blend of coffee, chocolate, and smooth milkshake", price: "$7", image: '' },
@@ -258,21 +261,32 @@ const MenuPage = () => {
             ))}
           </div>
           {/* Order Online Section */}
-          <div className="mt-16 text-center bg-[#1a130f] p-10 rounded-3xl border-2 border-primary/20 shadow-2xl relative overflow-hidden group">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(255,112,67,0.1)_0%,_transparent_100%)] opacity-50 group-hover:opacity-100 transition-opacity duration-700" />
+          <div className="mt-16 text-center bg-white/50 backdrop-blur-sm p-10 rounded-3xl border-2 border-primary/10 shadow-lg relative overflow-hidden group">
             <div className="relative z-10">
-              <h2 className="text-3xl sm:text-4xl text-white mb-4 uppercase font-black tracking-tight">Order <span className="text-primary">Online</span></h2>
-              <p className="text-white/60 mb-8 max-w-md mx-auto">Get your favorite rectangle pizza delivered hot to your doorstep via Uber Eats.</p>
-              <div className="flex flex-wrap justify-center gap-4">
-                <Button 
-                  size="lg" 
-                  className="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-6 rounded-2xl shadow-xl hover:-translate-y-1 transition-all duration-300"
-                  asChild
+              <h2 className="text-3xl sm:text-4xl text-foreground mb-6 uppercase font-black tracking-tight">Order <span className="text-primary">Online</span></h2>
+              <div className="flex flex-wrap justify-center items-center gap-6">
+                {/* DoorDash Themed Button */}
+                <a 
+                  href="#" 
+                  className="flex items-center gap-3 bg-white border-2 border-foreground px-8 py-3 rounded-xl shadow-[4px_4px_0px_0px_hsl(var(--foreground))] hover:-translate-y-1 transition-all duration-300 group"
                 >
-                  <a href="https://www.ubereats.com/store-browse-uuid/fd9542d7-6cb1-57a5-b09f-a7c72455e073?diningMode=DELIVERY" target="_blank" rel="noopener noreferrer">
-                    Order via Uber Eats
-                  </a>
-                </Button>
+                  <div className="w-8 h-8 flex items-center justify-center">
+                    <svg viewBox="0 0 24 24" className="w-full h-full text-[#FF3008] fill-current">
+                      <path d="M23.111 6.883c-.156-.378-.456-.694-.833-.878l-1.334-.633c-.7-.34-1.54-.05-1.89.65l-2.05 4.1c-.08.16-.16.32-.23.49-.07-.17-.15-.33-.23-.49l-2.05-4.1c-.35-.7-1.19-.99-1.89-.65l-1.334.633c-.377.184-.677.5-.833.878-.156.378-.167.794-.033 1.178l.5 1.4c.14.39.43.7.8.88l.8.38c.17.08.34.13.52.16-.18.03-.35.08-.52.16l-.8.38c-.37.18-.66.49-.8.88l-.5 1.4c-.134.384-.123.8.033 1.178.156.378.456.694.833.878l1.334.633c.18.09.38.13.58.13.54 0 1.05-.3 1.31-.82l2.05-4.1c.08-.16.16-.32.23-.49.07.17.15.33.23.49l2.05 4.1c.26.52.77.82 1.31.82.2 0 .4-.04.58-.13l1.334-.633c.377-.184.677-.5.833-.878.156-.378.167-.794.033-1.178l-.5-1.4c-.14-.39-.43-.7-.8-.88l-.8-.38c-.17-.08-.34-.13-.52-.16.18-.03.35-.08.52-.16l.8-.38c.37-.18.66-.49.8-.88l.5-1.4c.134-.384.123-.8-.033-1.178z"/>
+                    </svg>
+                  </div>
+                  <span className="text-xl font-black text-[#FF3008] uppercase tracking-tighter">Doordash</span>
+                </a>
+
+                {/* Uber Themed Button */}
+                <a 
+                  href="https://www.ubereats.com/store-browse-uuid/fd9542d7-6cb1-57a5-b09f-a7c72455e073?diningMode=DELIVERY" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 bg-white border-2 border-foreground px-8 py-3 rounded-xl shadow-[4px_4px_0px_0px_hsl(var(--foreground))] hover:-translate-y-1 transition-all duration-300"
+                >
+                  <span className="text-2xl font-bold text-black tracking-tight">Uber</span>
+                </a>
               </div>
             </div>
           </div>
