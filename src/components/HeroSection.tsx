@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Pizza } from "lucide-react";
-import heroImage from "@/assets/hero.png";
+import heroImage from "@/assets/hero.webp";
 
 const HeroSection = () => {
   return (
@@ -51,7 +51,7 @@ const HeroSection = () => {
               className="group relative bg-primary hover:bg-primary/90 text-white text-xl sm:text-2xl font-black px-10 py-8 rounded-2xl shadow-[0_20px_50px_rgba(255,112,67,0.4)] hover:-translate-y-2 transition-all duration-500 overflow-hidden"
               asChild
             >
-              <Link to="/menu">
+              <a href="https://www.ubereats.com/store-browse-uuid/fd9542d7-6cb1-57a5-b09f-a7c72455e073?diningMode=DELIVERY" target="_blank" rel="noopener noreferrer">
                 <span className="relative z-10 flex items-center gap-6 uppercase tracking-tight">
                   Order Now
                   <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform duration-500">
@@ -59,7 +59,7 @@ const HeroSection = () => {
                   </div>
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-              </Link>
+              </a>
             </Button>
           </div>
         </div>

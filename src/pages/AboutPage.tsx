@@ -1,12 +1,12 @@
 import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
-import brandImg from "@/assets/brand-personality_small.png";
+import brandImg from "@/assets/brand-personality_small.webp";
 import SEO from "@/components/SEO";
-import heroImg from "@/assets/brand-personality_small.png";
-import aboutMainImg from "@/assets/about-main.png";
-import rootImg from "@/assets/root.png";
-import conceptImg from "@/assets/concept.png";
-import growthImg from "@/assets/growth.png";
+import heroImg from "@/assets/brand-personality_small.webp";
+import aboutMainImg from "@/assets/about-main.webp";
+import rootImg from "@/assets/root.webp";
+import conceptImg from "@/assets/concept.webp";
+import growthImg from "@/assets/growth.webp";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Users, GraduationCap, Briefcase, Gamepad2, Quote, ChefHat, Heart, Sparkles, Pizza, MapPin, Rocket } from "lucide-react";
@@ -32,17 +32,49 @@ const timeline = [
   { year: "The Growth", text: "Now proud to call Clayton South home, serving our signature rectangle pizzas to the Melbourne community." },
 ];
 
-const aboutJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "AboutPage",
-  "name": "About Recto's Pizza",
-  "description": "Learn about the origin of our signature rectangle pizzas in Clayton South.",
-  "publisher": {
-    "@type": "Restaurant",
-    "name": "Recto's Pizza",
-    "url": "https://rectospizza.com"
+const aboutJsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About Recto's Pizza",
+    "description": "Learn about the origin of our signature rectangle pizzas in Clayton South.",
+    "publisher": {
+      "@type": "Restaurant",
+      "name": "Recto's Pizza",
+      "url": "https://rectospizza.com"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": [
+      {
+        "@type": "SiteNavigationElement",
+        "position": 1,
+        "name": "Home",
+        "url": "https://rectospizza.com"
+      },
+      {
+        "@type": "SiteNavigationElement",
+        "position": 2,
+        "name": "Menu",
+        "url": "https://rectospizza.com/menu"
+      },
+      {
+        "@type": "SiteNavigationElement",
+        "position": 3,
+        "name": "About Our Journey",
+        "url": "https://rectospizza.com/about"
+      },
+      {
+        "@type": "SiteNavigationElement",
+        "position": 4,
+        "name": "Contact Us",
+        "url": "https://rectospizza.com/contact"
+      }
+    ]
   }
-};
+];
 
 const AboutPage = () => {
   return (
@@ -341,7 +373,7 @@ const AboutPage = () => {
                 <Link to="/menu">View Menu</Link>
               </Button>
               <Button variant="heroOutline" size="lg" asChild>
-                <a href="https://www.ubereats.com" target="_blank" rel="noopener noreferrer">Order Now</a>
+                <a href="https://www.ubereats.com/store-browse-uuid/fd9542d7-6cb1-57a5-b09f-a7c72455e073?diningMode=DELIVERY" target="_blank" rel="noopener noreferrer">Order Now</a>
               </Button>
             </div>
           </div>

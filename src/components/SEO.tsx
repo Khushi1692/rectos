@@ -5,7 +5,7 @@ interface SEOProps {
   description?: string;
   canonical?: string;
   image?: string;
-  jsonLd?: Record<string, unknown>;
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
 
 const SEO = ({

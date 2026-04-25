@@ -23,24 +23,24 @@ import combo from "@/assets/combo_small.webp";
 const categories = ["Pizza","Korean", "Garlic Bread", "Drinks", "Combos", "Extra"] as const;
 type Category = (typeof categories)[number];
 
-const menuItems: Record<Category, { name: string; desc: string; price: string; image: string }[]> = {
+const menuItems: Record<Category, { name: string; desc: string; price: string; image: string; tags?: string[] }[]> = {
     Pizza: [
-      { name: "OG Margarita", desc: "OG Margarita Pizza - topped with fresh tomato sauce, creamy mozzarella, and fragrant basil.", price: "$7", image: margarita },
-      { name: "Cheesy Corn Pizza", desc: "A creamy blend of sweet corn and melted cheese on a perfectly baked base.", price: "$9", image: "" },
-      { name: "Paneer Onion Pizza", desc: "Loaded with soft paneer cubes, crunchy onions, and melted cheese on a flavorful base.", price: "$10", image: "" },
-      { name: "Madover 4 Cheese", desc: "Loaded with a rich blend of four premium cheeses melted to perfection.", price: "$10", image: "" },
-      { name: "Mushroom Truffle", desc: "A rich blend of earthy mushrooms and aromatic truffle oil over melted cheese.", price: "$12", image: "" },
-      { name: "Garden fresh", desc: "Garden Fresh Pizza - loaded with crisp veggies, juicy tomatoes, and fresh flavors on a cheesy base.", price: "$12", image: garden_fresh },
-      { name: "Sheikh chilli", desc: "Pizza top with sirka onion, pickled chilli, capsicum, cheese blend, pizza cheese, sundried tomato & seasoning", price: "$12", image: sheikh_chilli },
-      { name: "Chipotle chatakaz", desc: "Chipotle chatakaz Pizza - smoky chipotle base with rich cheese and crunchy veggies on top.", price: "$12", image: chiplote_fair },
-      { name: "Italian Retred pizza", desc: "A classic Italian-style pizza topped with rich tomato sauce, herbs, and melted cheese.", price: "$12", image: sheikh_chilli },
+      { name: "OG Margherita", desc: "OG Margherita Pizza - topped with fresh tomato sauce, creamy mozzarella, and fragrant basil.", price: "$7", image: margarita, tags: ["Popular", "Jain", "Swaminarayan"] },
+      { name: "Cheesy Corn Pizza", desc: "A creamy blend of sweet corn and melted cheese on a perfectly baked base.", price: "$9", image: "", tags: ["Jain", "Swaminarayan"] },
+      { name: "Paneer Onion Pizza", desc: "Loaded with soft paneer cubes, crunchy onions, and melted cheese on a flavorful base.", price: "$10", image: "", tags: ["Jain", "Swaminarayan"] },
+      { name: "Mad Over4 Cheese ❤️", desc: "Loaded with a rich blend of four premium cheeses melted to perfection.", price: "$10", image: "", tags: ["Popular"] },
+      { name: "Mushroom Truffle", desc: "A rich blend of earthy mushrooms and aromatic truffle oil over melted cheese.", price: "$12", image: "", tags: ["Jain", "Swaminarayan"] },
+      { name: "Garden Fresh", desc: "Garden Fresh Pizza - loaded with crisp veggies, juicy tomatoes, and fresh flavors on a cheesy base.", price: "$12", image: garden_fresh, tags: ["Jain", "Swaminarayan"] },
+      { name: "Sheikh Chilli 🔥", desc: "Pizza top with sirka onion, pickled chilli, capsicum, cheese blend, pizza cheese, sundried tomato & seasoning", price: "$12", image: sheikh_chilli, tags: ["Popular"] },
+      { name: "Chipotle Chatakaz", desc: "Chipotle chatakaz Pizza - smoky chipotle base with rich cheese and crunchy veggies on top.", price: "$12", image: chiplote_fair, tags: ["Jain", "Swaminarayan"] },
+      { name: "Italian Retreat Pizza", desc: "A classic Italian-style pizza topped with rich tomato sauce, herbs, and melted cheese.", price: "$12", image: sheikh_chilli, tags: ["Jain", "Swaminarayan"] },
       { name: "BBQ Paneer", desc: "BBQ Panner Pizza - loaded with smoky BBQ sauce, tender cottage cheese (paneer), and crunchy veggies.", price: "$12", image: bbq_cottage },
-      { name: "Bhoot Jolakia", desc: "Bhoot Jolokia Pizza - topped with fiery ghost pepper sauce, melted cheese, and loaded veggies.", price: "$12", image: bhoot_julakia },
-      { name: "Tandoori Peppy Paneer", desc: "Tandoori marinated Paneer with capsicum, onion, tandoori mayo & pizza cheese", price: "$12", image: tandoori_peppy_paneer },
-      { name: "Indian Tikka Masala", desc: "Loaded with rich tikka masala gravy, spiced toppings, and melted cheese.", price: "$12", image: sheikh_chilli },
-      { name: "Peri-peri Crunchies", desc: "Peri-Peri Crunchies – crispy bites tossed in bold peri-peri seasoning for a fiery kick.", price: "$12", image: peri_peri_crunchies },
+      { name: "Bhooootttt Jolakia 🔥", desc: "Bhoot Jolokia Pizza - topped with fiery ghost pepper sauce, melted cheese, and loaded veggies.", price: "$12", image: bhoot_julakia, tags: ["Popular"] },
+      { name: "Tandoori Peppy Paneer", desc: "Tandoori marinated Paneer with capsicum, onion, tandoori mayo & pizza cheese", price: "$12", image: tandoori_peppy_paneer, tags: ["Jain", "Swaminarayan"] },
+      { name: "Indian Tikka Masala", desc: "Loaded with rich tikka masala gravy, spiced toppings, and melted cheese.", price: "$12", image: sheikh_chilli, tags: ["Jain", "Swaminarayan"] },
+      { name: "Peri Peri Crunchies", desc: "Peri-Peri Crunchies – crispy bites tossed in bold peri-peri seasoning for a fiery kick.", price: "$12", image: peri_peri_crunchies, tags: ["Jain", "Swaminarayan"] },
       { name: "Pesto Veg", desc: "Pizza with homemade pesto sauce, cheese sauce, capsicum, onion, broccoli, zucchini, black olive, mushroom, sundried tomato top with cheese", price: "$12", image: pesto_patola },
-      { name: "Chocolate Melt Down", desc: "Chocolate Melt Down - rich, gooey chocolate loaded over a soft, warm base.", price: "$12", image: chocolate_meltdown },
+      { name: "Chocolate Melt Down", desc: "Chocolate Melt Down - rich, gooey chocolate loaded over a soft, warm base.", price: "$12", image: chocolate_meltdown, tags: ["Jain", "Swaminarayan"] },
    ],
      "Korean": [
       { name: "K-Pop Core Pizza", desc: "A vibrant mix of cheesy goodness, bold sauces, and exciting toppings inspired by Korean flavors.", price: "$13", image: "" },
@@ -50,56 +50,84 @@ const menuItems: Record<Category, { name: string; desc: string; price: string; i
     "Garlic Bread": [
       { name: "Cheeso Garlic Bread", desc: "Cheeso Garlic Bread – loaded with melted cheese, rich garlic butter, and a hint of herbs", price: "$6", image: "" },
       { name: "Cheese Garlic Bread", desc: "Baked bread with garlic paste blend with cheese sauce & top With pizza cheese, finish with seasoning", price: "$7", image: cheesy_garlic },
-      { name: "Paneer tikka garlic bread", desc: "Loaded with spiced paneer, rich garlic butter, and melted cheese on a soft, crispy base.", price: "$9", image: "" },
+      { name: "Paneer Tikka Garlic Bread", desc: "Loaded with spiced paneer, rich garlic butter, and melted cheese on a soft, crispy base.", price: "$9", image: "" },
     ],
     "Drinks": [
-     
       { name: "Water", desc: "", price: "$3", image: '' },
-      { name: "Cold Drink Tin", desc: "", price: "$4", image: '' },
+      { name: "Cold Drinks Tin", desc: "", price: "$4", image: '' },
       { name: "Masala Tea", desc: "", price: "$6", image: '' },
       { name: "Special Aroma Tea", desc: "", price: "$7", image: '' },
       { name: "Kiwi Cooler", desc: "A refreshing blend of tangy kiwi with a hint of sweetness and icy chill.", price: "$7", image: '' },
       { name: "Cold Coffee", desc: "A chilled blend of rich coffee, milk, and a touch of sweetness.", price: "$7", image: '' },
       { name: "Tiramisu Milkshake", desc: "A creamy blend of coffee, chocolate, and smooth milkshake", price: "$7", image: '' },
       { name: "Strawberry Milkshake", desc: "A delightful mix of juicy strawberries blended into a smooth, creamy shake.", price: "$7", image: '' },
-      { name: "Green Apple Majitio", desc: "A zesty mix of green apple, mint, and a splash of lime for a refreshing twist.", price: "$7", image: '' },
+      { name: "Green Apple Mojito", desc: "A zesty mix of green apple, mint, and a splash of lime for a refreshing twist.", price: "$7", image: '' },
       { name: "Chilli Guava Mojito", desc: "A bold blend of juicy guava, mint, and a hint of chilli for a spicy twist.", price: "$7", image: '' },
     ],
     "Combos": [
-     
-      { name: "OG Combo", desc: "OG Margherita Pizza + Cheesy Garlic Bread ", price: "$12", image: '' },
+      { name: "OG Combo", desc: "OG Margherita Pizza + Cheeso Garlic Bread", price: "$12", image: '' },
       { name: "Double Down", desc: "OG Margherita + Garden Fresh Veggies", price: "$17", image: '' },
-      { name: "Full Meal", desc: "Cheesy Corn Pizza + Chesszo Garlic Bread + Kiwi Cooler", price: "$21", image: '' },
-      { name: "Crazy 3 Combo", desc: "Paneer Onion Pizza + Cheesy Corn Pizza + OG Margherita ", price: "$23", image: combo },
+      { name: "Full Meal", desc: "Cheesy Corn Pizza + Cheeso Garlic Bread + Kiwi Cooler", price: "$21", image: '' },
+      { name: "Crazy 3 Combo", desc: "Paneer Onion Pizza + Cheesy Corn Pizza + OG Margherita", price: "$23", image: combo },
     ],
     "Extra": [
-     
-      { name: "Topping", desc: "OG Margherita Pizza + Cheesy Garlic Bread ", price: "$3", image: '' },
-      { name: "Cheese", desc: "Cheesy Corn Pizza + Chesszo Garlic Bread + Kiwi Cooler", price: "$3", image: '' },
-      { name: "Any Dip", desc: "OG Margherita + Garden Fresh Veggies", price: "$3", image: '' },
-      { name: "Paneer", desc: "OG Margherita + Garden Fresh Veggies", price: "$3", image: '' },
-      
+      { name: "Toppings", desc: "Add extra toppings to your pizza", price: "$3", image: '' },
+      { name: "Cheese", desc: "Extra melty cheese", price: "$3", image: '' },
+      { name: "Any Dip", desc: "Your choice of dipping sauce", price: "$3", image: '' },
+      { name: "Paneer", desc: "Extra cottage cheese cubes", price: "$3", image: '' },
     ],
 
 };
 
-const menuJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Menu",
-  "name": "Recto's Pizza Menu",
-  "mainEntityOfPage": "https://rectospizza.com/menu",
-  "hasMenuSection": [
-    {
-      "@type": "MenuSection",
-      "name": "Pizza",
-      "description": "Rectangle Pizzas",
-      "hasMenuItem": [
-        { "@type": "MenuItem", "name": "Margarita", "description": "Classic Margarita Pizza", "offers": { "@type": "Offer", "price": "17.99", "priceCurrency": "AUD" } },
-        { "@type": "MenuItem", "name": "Bhoot Jolokia", "description": "Spicy Ghost Pepper Pizza", "offers": { "@type": "Offer", "price": "14.49", "priceCurrency": "AUD" } }
-      ]
-    }
-  ]
-};
+const menuJsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Menu",
+    "name": "Recto's Pizza Menu",
+    "mainEntityOfPage": "https://rectospizza.com/menu",
+    "hasMenuSection": [
+      {
+        "@type": "MenuSection",
+        "name": "Pizza",
+        "description": "Rectangle Pizzas",
+        "hasMenuItem": [
+          { "@type": "MenuItem", "name": "Margarita", "description": "Classic Margarita Pizza", "offers": { "@type": "Offer", "price": "17.99", "priceCurrency": "AUD" } },
+          { "@type": "MenuItem", "name": "Bhoot Jolokia", "description": "Spicy Ghost Pepper Pizza", "offers": { "@type": "Offer", "price": "14.49", "priceCurrency": "AUD" } }
+        ]
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": [
+      {
+        "@type": "SiteNavigationElement",
+        "position": 1,
+        "name": "Home",
+        "url": "https://rectospizza.com"
+      },
+      {
+        "@type": "SiteNavigationElement",
+        "position": 2,
+        "name": "Menu",
+        "url": "https://rectospizza.com/menu"
+      },
+      {
+        "@type": "SiteNavigationElement",
+        "position": 3,
+        "name": "About Our Journey",
+        "url": "https://rectospizza.com/about"
+      },
+      {
+        "@type": "SiteNavigationElement",
+        "position": 4,
+        "name": "Contact Us",
+        "url": "https://rectospizza.com/contact"
+      }
+    ]
+  }
+];
 
 const MenuPage = () => {
   const [active, setActive] = useState<Category>("Pizza");
@@ -210,7 +238,17 @@ const MenuPage = () => {
                   />
                 </div>
                 <div className="p-5 flex flex-col flex-1">
-                  <h3 className="text-lg font-heading font-bold text-foreground uppercase mb-1">{item.name}</h3>
+                  <div className="flex flex-wrap items-center gap-2 mb-1">
+                    <h3 className="text-lg font-heading font-bold text-foreground uppercase">{item.name}</h3>
+                    {item.tags?.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-3 py-0.5 bg-[#1a472a] text-white text-[10px] font-bold rounded-full uppercase tracking-wider shadow-sm"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                   {active !== "Extra" && (
                     <p className="text-muted-foreground text-sm mb-2 flex-1">{item.desc}</p>
                   )}
@@ -218,6 +256,25 @@ const MenuPage = () => {
                 </div>
               </div>
             ))}
+          </div>
+          {/* Order Online Section */}
+          <div className="mt-16 text-center bg-[#1a130f] p-10 rounded-3xl border-2 border-primary/20 shadow-2xl relative overflow-hidden group">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(255,112,67,0.1)_0%,_transparent_100%)] opacity-50 group-hover:opacity-100 transition-opacity duration-700" />
+            <div className="relative z-10">
+              <h2 className="text-3xl sm:text-4xl text-white mb-4 uppercase font-black tracking-tight">Order <span className="text-primary">Online</span></h2>
+              <p className="text-white/60 mb-8 max-w-md mx-auto">Get your favorite rectangle pizza delivered hot to your doorstep via Uber Eats.</p>
+              <div className="flex flex-wrap justify-center gap-4">
+                <Button 
+                  size="lg" 
+                  className="bg-primary hover:bg-primary/90 text-white font-bold px-8 py-6 rounded-2xl shadow-xl hover:-translate-y-1 transition-all duration-300"
+                  asChild
+                >
+                  <a href="https://www.ubereats.com/store-browse-uuid/fd9542d7-6cb1-57a5-b09f-a7c72455e073?diningMode=DELIVERY" target="_blank" rel="noopener noreferrer">
+                    Order via Uber Eats
+                  </a>
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

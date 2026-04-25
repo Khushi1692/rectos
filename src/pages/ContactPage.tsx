@@ -38,25 +38,57 @@ const contactCards = [
   },
 ];
 
-const contactJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "ContactPage",
-  "name": "Contact Recto's Pizza",
-  "mainEntity": {
-    "@type": "Restaurant",
-    "name": "Recto's Pizza",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "23 Meriton Pl",
-      "addressLocality": "Clayton South",
-      "addressRegion": "VIC",
-      "postalCode": "3169",
-      "addressCountry": "AU"
-    },
-    "telephone": "+61 406 562 036",
-    "email": "info@rectospizza.com"
+const contactJsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact Recto's Pizza",
+    "mainEntity": {
+      "@type": "Restaurant",
+      "name": "Recto's Pizza",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "23 Meriton Pl",
+        "addressLocality": "Clayton South",
+        "addressRegion": "VIC",
+        "postalCode": "3169",
+        "addressCountry": "AU"
+      },
+      "telephone": "+61 406 562 036",
+      "email": "info@rectospizza.com"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": [
+      {
+        "@type": "SiteNavigationElement",
+        "position": 1,
+        "name": "Home",
+        "url": "https://rectospizza.com"
+      },
+      {
+        "@type": "SiteNavigationElement",
+        "position": 2,
+        "name": "Menu",
+        "url": "https://rectospizza.com/menu"
+      },
+      {
+        "@type": "SiteNavigationElement",
+        "position": 3,
+        "name": "About Our Journey",
+        "url": "https://rectospizza.com/about"
+      },
+      {
+        "@type": "SiteNavigationElement",
+        "position": 4,
+        "name": "Contact Us",
+        "url": "https://rectospizza.com/contact"
+      }
+    ]
   }
-};
+];
 
 const ContactPage = () => {
   const {

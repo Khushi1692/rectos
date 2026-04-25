@@ -56,7 +56,7 @@ const Navbar = () => {
 
         <div className="flex items-center gap-2">
           <Button variant="outline" className="border-primary/50 text-primary hover:bg-primary hover:text-white rounded-full px-6" asChild>
-            <a href="https://www.ubereats.com/au/store/rectos-pizza/m9zXvT5_X_OfV0w6x_6vGg" target="_blank" rel="noopener noreferrer">Order Now</a>
+            <a href="https://www.ubereats.com/store-browse-uuid/fd9542d7-6cb1-57a5-b09f-a7c72455e073?diningMode=DELIVERY" target="_blank" rel="noopener noreferrer">Order Now</a>
           </Button>
           <button
             className="md:hidden w-9 h-9 flex items-center justify-center text-secondary-foreground"
