@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import FooterSection from "@/components/FooterSection";
 import { MenuCharacter } from "@/components/MenuCharacter";
 import { ThemeElements, PageTransition } from "@/components/ThemeElements";
+import { Pizza } from "lucide-react";
 
 import margarita from "@/assets/margarita_small.webp";
 import bbq_cottage from "@/assets/bbq_cottage_small.webp";
@@ -22,6 +23,7 @@ import peri_peri_crunchies from "@/assets/peri_peri_crunchies_small.webp";
 import tea from "@/assets/tea.jpeg";
 
 import combo from "@/assets/combo_small.webp";
+import doordash from "@/assets/doordash.png";
 
 const categories = ["Pizza","Korian", "Garlic Bread", "Drinks", "Combos", "Extra"] as const;
 type Category = (typeof categories)[number];
@@ -232,13 +234,29 @@ const MenuPage = () => {
                 data-menu-item={`${active}-${index}`}
                 className="bg-card border-2 border-foreground shadow-[4px_4px_0px_0px_hsl(var(--foreground))] overflow-hidden group flex flex-col hover:-translate-y-2 transition-transform duration-300"
               >
-                <div className="aspect-square overflow-hidden bg-primary/20">
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    loading="lazy"
-                  />
+                <div className="aspect-square overflow-hidden bg-primary/20 flex items-center justify-center relative group">
+                  {item.image ? (
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center relative p-4 overflow-hidden">
+                      {/* Stylized Cross Background */}
+                      <div className="absolute inset-0 opacity-10">
+                        <div className="absolute inset-0 border-t-2 border-primary rotate-45 origin-center scale-150"></div>
+                        <div className="absolute inset-0 border-t-2 border-primary -rotate-45 origin-center scale-150"></div>
+                      </div>
+                      <h3 className="text-2xl font-black text-primary/40 uppercase rotate-[-12deg] text-center leading-tight tracking-tighter select-none break-words">
+                        {item.name}
+                      </h3>
+                      <div className="absolute bottom-4 right-4 opacity-20">
+                         <Pizza className="w-12 h-12 text-primary" />
+                      </div>
+                    </div>
+                  )}
                 </div>
                 <div className="p-5 flex flex-col flex-1">
                   <div className="flex flex-wrap items-center gap-2 mb-1">
@@ -271,9 +289,7 @@ const MenuPage = () => {
                   className="flex items-center gap-3 bg-white border-2 border-foreground px-8 py-3 rounded-xl shadow-[4px_4px_0px_0px_hsl(var(--foreground))] hover:-translate-y-1 transition-all duration-300 group"
                 >
                   <div className="w-8 h-8 flex items-center justify-center">
-                    <svg viewBox="0 0 24 24" className="w-full h-full text-[#FF3008] fill-current">
-                      <path d="M23.111 6.883c-.156-.378-.456-.694-.833-.878l-1.334-.633c-.7-.34-1.54-.05-1.89.65l-2.05 4.1c-.08.16-.16.32-.23.49-.07-.17-.15-.33-.23-.49l-2.05-4.1c-.35-.7-1.19-.99-1.89-.65l-1.334.633c-.377.184-.677.5-.833.878-.156.378-.167.794-.033 1.178l.5 1.4c.14.39.43.7.8.88l.8.38c.17.08.34.13.52.16-.18.03-.35.08-.52.16l-.8.38c-.37.18-.66.49-.8.88l-.5 1.4c-.134.384-.123.8.033 1.178.156.378.456.694.833.878l1.334.633c.18.09.38.13.58.13.54 0 1.05-.3 1.31-.82l2.05-4.1c.08-.16.16-.32.23-.49.07.17.15.33.23.49l2.05 4.1c.26.52.77.82 1.31.82.2 0 .4-.04.58-.13l1.334-.633c.377-.184.677-.5.833-.878.156-.378.167-.794.033-1.178l-.5-1.4c-.14-.39-.43-.7-.8-.88l-.8-.38c-.17-.08-.34-.13-.52-.16.18-.03.35-.08.52-.16l.8-.38c.37-.18.66-.49.8-.88l.5-1.4c.134-.384.123-.8-.033-1.178z"/>
-                    </svg>
+                    <img src={doordash} alt="DoorDash" className="w-full h-auto object-contain" />
                   </div>
                   <span className="text-xl font-black text-[#FF3008] uppercase tracking-tighter">Doordash</span>
                 </a>

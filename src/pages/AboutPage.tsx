@@ -93,7 +93,7 @@ const AboutPage = () => {
         initialMessage="Let's see the story behind the Rectos" 
         initialSpeech="Let's see the story behind the Rectos" 
       />
-      <div className="pt-24 pb-0 relative z-10">
+      <div className="pt-32 pb-0 relative z-10">
 
         {/* Hero — Big & Bold */}
         <section className="relative pb-20 pt-4 px-4 overflow-hidden">
