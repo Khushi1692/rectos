@@ -1,4 +1,4 @@
-import { Leaf, Clock, Smile } from "lucide-react";
+import { Leaf, Clock, Smile, Heart } from "lucide-react";
 
 const features = [
   {
@@ -22,6 +22,13 @@ const features = [
     title: "Delicious Taste",
     description: "Our food is crafted to deliver a taste sensation.",
   },
+  {
+    icon: Heart,
+    iconColor: "text-red-500",
+    iconBg: "bg-red-400",
+    title: "Jain & Swaminarayan",
+    description: "Specialized menu options crafted for your dietary preferences.",
+  },
 ];
 
 const WhyRectangle = () => {
@@ -36,13 +43,13 @@ const WhyRectangle = () => {
             We reinvented pizza to make it easier to share, easier to eat, and more satisfying.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
           {features.map((feature) => (
             <div
               key={feature.title}
-              className="bg-card border-2 border-foreground shadow-[4px_4px_0px_0px_hsl(var(--foreground))] p-8 text-center hover:-translate-y-2 transition-transform duration-300"
+              className="bg-card border-2 border-foreground shadow-[4px_4px_0px_0px_hsl(var(--foreground))] p-8 text-center hover:-translate-y-2 transition-transform duration-300 flex flex-col items-center"
             >
-              <div className={`w-16 h-16 rounded-full ${feature.iconBg} flex items-center justify-center mx-auto mb-5 border-2 border-foreground`}>
+              <div className={`w-16 h-16 rounded-full ${feature.iconBg} flex items-center justify-center mb-5 border-2 border-foreground shrink-0`}>
                 <feature.icon className="w-8 h-8 text-foreground" />
               </div>
               <h3 className="text-lg text-foreground mb-2">{feature.title}</h3>

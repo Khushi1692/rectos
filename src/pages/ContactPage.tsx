@@ -21,19 +21,19 @@ const contactCards = [
   {
     icon: Phone,
     title: "Call Us",
-    lines: ["+61 406 562 036"],
+    lines: ["+61 415 080 657"],
   },
   {
     icon: Mail,
     title: "Email Us",
-    lines: ["info@rectospizza.com"],
+    lines: ["rectospizzaaustralia@gmail.com"],
   },
   {
     icon: Clock,
     title: "Opening Hours",
     lines: [
-      "Monday – Thursday: 5:00 PM – 10:59 PM",
-      "Friday – Sunday: 5:00 PM – 11:59 PM",
+      "Sunday – Thursday: 5:00 PM – 10:59 PM",
+      "Friday, Saturday: 5:00 PM – 11:59 PM",
     ],
   },
 ];
@@ -54,8 +54,8 @@ const contactJsonLd = [
         "postalCode": "3169",
         "addressCountry": "AU"
       },
-      "telephone": "+61 406 562 036",
-      "email": "info@rectospizza.com"
+      "telephone": "+61 415 080 657",
+      "email": "rectospizzaaustralia@gmail.com"
     }
   },
   {
@@ -139,7 +139,7 @@ const ContactPage = () => {
       <ThemeElements variant="light" />
       <SEO
         title="Contact Us & Find Our Location | Recto's Pizza Clayton South"
-        description="Visit Recto's Pizza in Clayton South. Call +61 406 562 036 or email info@rectospizza.com for orders and inquiries. Find our location on the map."
+        description="Visit Recto's Pizza. Call +61 415 080 657 or email rectospizzaaustralia@gmail.com for orders and inquiries. Find our location on the map."
         canonical="https://rectospizza.com/contact"
         jsonLd={contactJsonLd}
       />

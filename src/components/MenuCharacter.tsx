@@ -172,22 +172,21 @@ export const MenuCharacter = ({ visible, initialMessage, initialSpeech }: MenuCh
   return (
     <div
       ref={characterRef}
-      className="fixed z-[50] flex flex-col items-center transition-all duration-500"
-      style={{ width: "180px", bottom: "0.5rem", right: "0.5rem" }}
+      className="fixed z-[50] flex flex-col items-center transition-all duration-500 w-[140px] sm:w-[180px] bottom-2 right-2"
     >
       <div 
         ref={speechRef} 
-        className="absolute -top-10 right-10 bg-white text-foreground px-4 py-2 rounded-2xl shadow-xl border-2 border-primary/20 text-sm font-bold z-[51] whitespace-nowrap cursor-pointer"
+        className="absolute -top-12 sm:-top-10 right-12 sm:right-10 bg-white text-foreground px-3 py-1.5 sm:px-4 sm:py-2 rounded-2xl shadow-xl border-2 border-primary/20 text-xs sm:text-sm font-bold z-[51] whitespace-nowrap cursor-pointer max-w-[200px] sm:max-w-none truncate"
         onClick={() => speakDirect(currentText, true)}
       >
         {currentText}
         <div className="absolute -bottom-2 right-8 w-4 h-4 bg-white border-r-2 border-b-2 border-primary/20 rotate-45" />
       </div>
 
-      <div className="relative w-40 h-40 cursor-pointer" onClick={() => speakDirect(currentText, true)}>
+      <div className="relative w-32 h-32 sm:w-40 sm:h-40 cursor-pointer" onClick={() => speakDirect(currentText, true)}>
         <img ref={mascotImgRef} src={charater} alt="Mascot" className="w-full h-full object-contain" />
       </div>
-      <div className="w-20 h-3 bg-black/20 blur-md rounded-full mt-[-10px]" />
+      <div className="w-16 h-2 sm:w-20 sm:h-3 bg-black/20 blur-md rounded-full mt-[-10px]" />
     </div>
   );
 };

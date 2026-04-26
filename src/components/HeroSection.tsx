@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Pizza } from "lucide-react";
+import { Square } from "lucide-react";
 import heroImage from "@/assets/hero.webp";
 
 const HeroSection = () => {
@@ -24,7 +24,7 @@ const HeroSection = () => {
           
           {/* Tagline */}
           <div className="inline-flex items-center gap-3 bg-primary/20 backdrop-blur-md px-4 py-2 rounded-full border border-primary/30 w-fit">
-            <Pizza className="w-4 h-4 text-primary" />
+            <Square className="w-4 h-4 text-primary" />
             <span className="text-white text-[10px] sm:text-xs font-bold uppercase tracking-widest">Premium Rectangle Pizza</span>
           </div>
 
@@ -55,7 +55,7 @@ const HeroSection = () => {
                 <span className="relative z-10 flex items-center gap-6 uppercase tracking-tight">
                   Order Now
                   <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center group-hover:rotate-12 transition-transform duration-500">
-                    <Pizza className="w-6 h-6 text-white" />
+                    <Square className="w-6 h-6 text-white" />
                   </div>
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />

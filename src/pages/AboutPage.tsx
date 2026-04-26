@@ -17,6 +17,7 @@ const whyRectangle = [
   { title: "Perfect Portions", desc: "Every slice is equal. No more big vs small fights.", emoji: "🔲" },
   { title: "More Toppings", desc: "Rectangle shape gives more surface area for toppings.", emoji: "🍕" },
   { title: "Better Sharing", desc: "Fits perfectly in boxes, tables, and groups.", emoji: "🤝" },
+  { title: "Pure Options", desc: "Specialized Jain and Swaminarayan menu items available.", emoji: "✨" },
 ];
 
 const audience = [
@@ -224,7 +225,8 @@ const AboutPage = () => {
                     <div className="pt-4 md:pt-0">
                       <h3 className="text-2xl font-bold text-white mb-2 tracking-wide group-hover:text-primary transition-colors uppercase">The Growth</h3>
                       <p className="text-white/70 leading-relaxed max-w-sm">
-                        Now proud to call Clayton South home, serving our signature rectangle pizzas to the Melbourne community.
+                        
+Now proud to call Melbourne home, serving our signature rectangle pizzas to the Australian community with love.
                       </p>
                     </div>
                   </div>
@@ -284,9 +286,9 @@ const AboutPage = () => {
               <h2 className="text-3xl sm:text-4xl text-primary-foreground mb-3">
                 Why <span className="text-foreground">Rectangle</span>?
               </h2>
-              <p className="text-primary-foreground/80 max-w-md mx-auto">Three reasons that make all the difference.</p>
+              <p className="text-primary-foreground/80 max-w-md mx-auto">Key reasons that make all the difference.</p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
               {whyRectangle.map((item) => (
                 <div key={item.title} className="bg-card border-2 border-foreground shadow-[4px_4px_0px_0px_hsl(var(--foreground))] p-8 text-center hover:-translate-y-2 transition-transform duration-300">
                   <div className="text-4xl mb-4">{item.emoji}</div>

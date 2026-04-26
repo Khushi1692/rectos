@@ -25,10 +25,10 @@ const homepageJsonLd = [
       postalCode: "3169",
       addressCountry: "AU",
     },
-    telephone: "+61406562036",
+    telephone: "+61415080657",
     servesCuisine: "Pizza",
     url: "https://rectospizza.com",
-    openingHours: ["Mo-Th 17:00-22:59", "Fr-Su 17:00-23:59"],
+    openingHours: ["Su-Th 17:00-22:59", "Fr-Sa 17:00-23:59"],
     priceRange: "$$",
   },
   {

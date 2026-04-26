@@ -1,7 +1,7 @@
-import { Pizza, ChefHat, Store } from "lucide-react";
+import { Square, ChefHat, Store } from "lucide-react";
 
 const steps = [
-  { icon: Pizza, title: "Choose Your Rectangle", desc: "Pick from our signature rectangular pizzas." },
+  { icon: Square, title: "Choose Your Rectangle", desc: "Pick from our signature rectangular pizzas." },
   { icon: ChefHat, title: "We Make It Fresh", desc: "Handcrafted with fresh ingredients, baked to perfection." },
   { icon: Store, title: "Dine In or Order Online", desc: "Enjoy at our place or order via Uber Eats." },
 ];
